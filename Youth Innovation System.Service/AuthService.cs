@@ -15,10 +15,15 @@ namespace Youth_Innovation_System.Service
 {
     public class AuthService : IAuthService
     {
+        private static readonly HashSet<string> BlacklistedTokens = new();
+
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
+        public AuthService()
+        {
 
+        }
         public AuthService(IConfiguration configuration, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
@@ -36,7 +41,7 @@ namespace Youth_Innovation_System.Service
             }
             //checking password
             //assume no persistent and no lockout
-            var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, loginDto.IsPersistent, false);
             if (!result.Succeeded)
             {
                 throw new UnauthorizedAccessException("Invalid login attempt!");
@@ -111,6 +116,20 @@ namespace Youth_Innovation_System.Service
 
             //write token and return
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+
+        public async Task<bool> IsTokenBlacklistedAsync(string token)
+        {
+            await Task.Delay(100); // Simulate a delay
+            return BlacklistedTokens.Contains(token);
+        }
+
+        // Simulate async I/O operation to add token to blacklist
+        public async Task BlacklistTokenAsync(string token)
+        {
+            await Task.Delay(100); // Simulate a delay
+            BlacklistedTokens.Add(token);
         }
 
     }

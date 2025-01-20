@@ -10,5 +10,7 @@ namespace Youth_Innovation_System.Core.IServices
         public Task<string> CreateWebTokenAsync(ApplicationUser user);
         public Task<IdentityResult> RegisterAsync(RegisterDto registerDto);
         public Task<LoginResponseDto> LoginAsync(LoginDto loginDto);
+        public Task<bool> IsTokenBlacklistedAsync(string token);
+        public Task BlacklistTokenAsync(string token);
     }
 }

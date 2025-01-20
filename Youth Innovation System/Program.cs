@@ -1,14 +1,7 @@
-
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Youth_Innovation_System.API.Errors;
 using Youth_Innovation_System.API.Middlewares;
-using Youth_Innovation_System.Core.Entities.Identity;
 using Youth_Innovation_System.Extensions;
+using Youth_Innovation_System.Middlewares;
 using Youth_Innovation_System.Repository.Identity;
 
 namespace Youth_Innovation_System
@@ -40,17 +33,18 @@ namespace Youth_Innovation_System
             await Migrate_SeedingData.Migrate_Seed(app);
 
             app.UseMiddleware<ExceptionMiddleware>();
+            app.UseMiddleware<TokenBlacklistMiddleware>();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseRouting();
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseRouting();
 
             app.MapControllers();
 

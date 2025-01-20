@@ -11,5 +11,6 @@ namespace Youth_Innovation_System.DTOs.Identity
         [Required(ErrorMessage = "Password is Required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        public bool IsPersistent { get; set; } = false;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Youth_Innovation_System.API.Errors;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.DTOs.Identity;
@@ -21,7 +22,6 @@ namespace Youth_Innovation_System.API.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
-
             var result = await _authService.RegisterAsync(registerDto);
 
             if (result.Succeeded)
@@ -54,6 +54,24 @@ namespace Youth_Innovation_System.API.Controllers
             {
                 return Unauthorized(new ApiResponse(StatusCodes.Status401Unauthorized, ex.Message));
             }
+        }
+        [Authorize]
+        [HttpPost("Logout")]
+        public async Task<IActionResult> Logout([FromHeader] string authorization)
+        {
+            if (string.IsNullOrWhiteSpace(authorization) || !authorization.StartsWith("Bearer "))
+            {
+                return BadRequest(new { message = "Invalid Authorization header" });
+            }
+
+            var token = authorization.Substring("Bearer ".Length).Trim();
+            if (string.IsNullOrEmpty(token))
+            {
+                return Unauthorized(new { message = "Token is missing or invalid" });
+            }
+            await _authService.BlacklistTokenAsync(token);
+
+            return Ok(new { message = "Logged out successfully" });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 namespace Youth_Innovation_System.APIs.Controllers
 {
     [Route("api/[controller]")]
@@ -6,10 +7,8 @@ namespace Youth_Innovation_System.APIs.Controllers
     public class BuggyController : ControllerBase
     {
 
-
         [HttpGet("InternalServerError")]
         public async Task<ActionResult> GetServerError() => throw new Exception();
-
         [HttpGet("NotFound")]
         public async Task<ActionResult> GetNotFoundRequest() => NotFound();
 
