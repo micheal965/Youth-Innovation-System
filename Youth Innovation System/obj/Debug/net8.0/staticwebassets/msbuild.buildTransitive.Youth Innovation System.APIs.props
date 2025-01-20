@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Youth Innovation System.APIs.props" />
+</Project>

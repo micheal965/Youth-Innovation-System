@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Youth Innovation System.APIs", "Youth Innovation System\Youth Innovation System.APIs.csproj", "{593FD4AF-CFF0-483A-B900-A7631F9660A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Youth Innovation System.APIs", "Youth Innovation System\Youth Innovation System.APIs.csproj", "{593FD4AF-CFF0-483A-B900-A7631F9660A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Youth Innovation System.Core", "Youth Innovation System.Core\Youth Innovation System.Core.csproj", "{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Youth Innovation System.Core", "Youth Innovation System.Core\Youth Innovation System.Core.csproj", "{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Youth Innovation System.Repository", "Youth Innovation System.Repository\Youth Innovation System.Repository.csproj", "{7C300ECC-85EB-40CF-A2A7-0C9545D4F245}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Youth Innovation System.Repository", "Youth Innovation System.Repository\Youth Innovation System.Repository.csproj", "{7C300ECC-85EB-40CF-A2A7-0C9545D4F245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Youth Innovation System.Service", "Youth Innovation System.Service\Youth Innovation System.Service.csproj", "{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Youth Innovation System.Service", "Youth Innovation System.Service\Youth Innovation System.Service.csproj", "{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Youth Innovation System.Shared", "Youth Innovation System.Shared\Youth Innovation System.Shared.csproj", "{279F477D-5DD3-433C-85F1-FA79F48973A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{279F477D-5DD3-433C-85F1-FA79F48973A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279F477D-5DD3-433C-85F1-FA79F48973A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279F477D-5DD3-433C-85F1-FA79F48973A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279F477D-5DD3-433C-85F1-FA79F48973A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
