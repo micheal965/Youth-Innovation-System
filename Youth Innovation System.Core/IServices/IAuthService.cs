@@ -12,5 +12,6 @@ namespace Youth_Innovation_System.Core.IServices
         public Task<LoginResponseDto> LoginAsync(LoginDto loginDto);
         public Task<bool> IsTokenBlacklistedAsync(string token);
         public Task BlacklistTokenAsync(string token);
-    }
+		public Task<IdentityResult> ChangePasswordAsync(string userId, ChangePasswordDto model);
+	}
 }

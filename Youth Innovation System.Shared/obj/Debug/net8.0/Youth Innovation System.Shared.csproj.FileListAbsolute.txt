@@ -10,3 +10,15 @@ C:\Users\MICHEAL\source\repos\Youth Innovation System\Youth Innovation System.Sh
 C:\Users\MICHEAL\source\repos\Youth Innovation System\Youth Innovation System.Shared\obj\Debug\net8.0\refint\Youth Innovation System.Shared.dll
 C:\Users\MICHEAL\source\repos\Youth Innovation System\Youth Innovation System.Shared\obj\Debug\net8.0\Youth Innovation System.Shared.pdb
 C:\Users\MICHEAL\source\repos\Youth Innovation System\Youth Innovation System.Shared\obj\Debug\net8.0\ref\Youth Innovation System.Shared.dll
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\bin\Debug\net8.0\Youth Innovation System.Shared.deps.json
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\bin\Debug\net8.0\Youth Innovation System.Shared.dll
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\bin\Debug\net8.0\Youth Innovation System.Shared.pdb
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\Youth Innovation System.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\Youth Innovation System.Shared.AssemblyInfoInputs.cache
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\Youth Innovation System.Shared.AssemblyInfo.cs
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\Youth Innovation System.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\Youth Innovation System.Shared.sourcelink.json
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\Youth Innovation System.Shared.dll
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\refint\Youth Innovation System.Shared.dll
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\Youth Innovation System.Shared.pdb
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Shared\obj\Debug\net8.0\ref\Youth Innovation System.Shared.dll

@@ -132,5 +132,25 @@ namespace Youth_Innovation_System.Service
             BlacklistedTokens.Add(token);
         }
 
-    }
+		public async Task<IdentityResult> ChangePasswordAsync(string userId, ChangePasswordDto model)
+		{
+			var user =await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
+            var checkPassword = await _userManager.CheckPasswordAsync(user, model.OldPassword);
+            if (!checkPassword)
+            {
+                throw new Exception("Old Password is incorrect");
+            }
+
+            var result = await _userManager.ChangePasswordAsync(user,model.OldPassword,model.NewPassword);
+            if (result.Succeeded)
+            {
+                return result;
+            }
+			throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));  
+		}
+	}
 }

@@ -2208,19 +2208,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MICHEAL\\.nuget\\packages\\": {}
+    "C:\\Users\\Antoinette Emad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Service\\Youth Innovation System.Service.csproj",
+      "projectUniqueName": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\Youth Innovation System.Service.csproj",
       "projectName": "Youth Innovation System.Service",
-      "projectPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Service\\Youth Innovation System.Service.csproj",
-      "packagesPath": "C:\\Users\\MICHEAL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Service\\obj\\",
+      "projectPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\Youth Innovation System.Service.csproj",
+      "packagesPath": "C:\\Users\\Antoinette Emad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MICHEAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Antoinette Emad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2235,11 +2235,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Core\\Youth Innovation System.Core.csproj": {
-              "projectPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Core\\Youth Innovation System.Core.csproj"
+            "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Youth Innovation System.Core.csproj": {
+              "projectPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Youth Innovation System.Core.csproj"
             },
-            "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj": {
-              "projectPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj"
+            "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj": {
+              "projectPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj"
             }
           }
         }

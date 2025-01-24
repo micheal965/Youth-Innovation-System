@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Youth_Innovation_System.API.Errors;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.DTOs.Identity;
@@ -72,6 +73,22 @@ namespace Youth_Innovation_System.API.Controllers
             await _authService.BlacklistTokenAsync(token);
 
             return Ok(new { message = "Logged out successfully" });
+        }
+        [Authorize]
+        [HttpPost("ChangePassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePasswordDto)
+        {
+            
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            userId = null;
+            if(userId is null)
+                return BadRequest();
+            var result = await _authService.ChangePasswordAsync(userId, changePasswordDto);
+            if (result.Succeeded)
+            {
+                return Ok("Password Changed successfully");
+            }
+            return BadRequest("something went wrong");
         }
     }
 }

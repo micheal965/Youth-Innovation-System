@@ -14,8 +14,9 @@ namespace Youth_Innovation_System.Middlewares
 
         public async Task Invoke(HttpContext context)
         {
+
             var token = context.Request.Headers["authorization"].FirstOrDefault()?.Replace("Bearer ", "");
-            var authservice = new AuthService();
+            var authservice = context.RequestServices.GetRequiredService<IAuthService>();
             if (!string.IsNullOrEmpty(token) && await authservice.IsTokenBlacklistedAsync(token))
             {
                 context.Response.StatusCode = (int)HttpStatusCode.Unauthorized; // Unauthorized

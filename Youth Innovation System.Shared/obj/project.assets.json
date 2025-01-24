@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\MICHEAL\\.nuget\\packages\\": {}
+    "C:\\Users\\Antoinette Emad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj",
       "projectName": "Youth Innovation System.Shared",
-      "projectPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj",
-      "packagesPath": "C:\\Users\\MICHEAL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth Innovation System\\Youth Innovation System.Shared\\obj\\",
+      "projectPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj",
+      "packagesPath": "C:\\Users\\Antoinette Emad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MICHEAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Antoinette Emad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
