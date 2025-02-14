@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Youth_Innovation_System.API.Errors;
 using Youth_Innovation_System.Core.Entities.Identity;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.DTOs.Identity;
@@ -132,9 +132,9 @@ namespace Youth_Innovation_System.Service
             BlacklistedTokens.Add(token);
         }
 
-		public async Task<IdentityResult> ChangePasswordAsync(string userId, ChangePasswordDto model)
-		{
-			var user =await _userManager.FindByIdAsync(userId);
+        public async Task ChangePasswordAsync(string userId, ChangePasswordDto model)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
                 throw new Exception("User not found");
@@ -145,12 +145,55 @@ namespace Youth_Innovation_System.Service
                 throw new Exception("Old Password is incorrect");
             }
 
-            var result = await _userManager.ChangePasswordAsync(user,model.OldPassword,model.NewPassword);
-            if (result.Succeeded)
+            var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+            if (!result.Succeeded)
             {
-                return result;
+                throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
             }
-			throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));  
-		}
-	}
+        }
+
+        //Forget Password
+        public async Task<ApiResponse> SendOtpAsync(ForgotPasswordRequestDto request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user == null) return new ApiResponse(StatusCodes.Status404NotFound, "User not found");
+
+            var otp = new Random().Next(100000, 999999).ToString();
+            user.PasswordResetOTP = otp;
+            user.OTPExpiry = DateTime.UtcNow.AddMinutes(5);
+            await _userManager.UpdateAsync(user);
+
+            await _emailService.SendOtpEmailAsync(user.Email, otp);
+            return new ApiResponse(StatusCodes.Status200OK, "OTP sent successfully");
+        }
+
+        public async Task<ApiResponse> VerifyOtpAsync(VerifyOtpRequestDto request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user == null || user.PasswordResetOTP != request.OTP || user.OTPExpiry < DateTime.UtcNow)
+                return new ApiResponse(StatusCodes.Status400BadRequest, "Invalid or expired OTP");
+
+            return new ApiResponse(StatusCodes.Status200OK, "OTP verified successfully");
+
+        }
+
+        public async Task<ApiResponse> ResetPasswordAsync(ResetPasswordRequestDto request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user == null || user.PasswordResetOTP != request.OTP || user.OTPExpiry < DateTime.UtcNow)
+                return new ApiResponse(StatusCodes.Status400BadRequest, "Invalid or expired OTP");
+
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, request.NewPassword);
+            if (!result.Succeeded) return new ApiResponse(StatusCodes.Status400BadRequest, "Password reset failed");
+
+            user.PasswordResetOTP = null;
+            user.OTPExpiry = null;
+            await _userManager.UpdateAsync(user);
+            return new ApiResponse(StatusCodes.Status400BadRequest, "Password reset failed");
+
+        }
+
+    }
 }

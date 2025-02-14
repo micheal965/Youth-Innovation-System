@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Youth_Innovation_System.API.Errors;
@@ -10,11 +11,11 @@ namespace Youth_Innovation_System.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
 
-        public AccountController(IAuthService authService)
+        public AuthController(IAuthService authService)
         {
             _authService = authService;
         }
@@ -42,7 +43,6 @@ namespace Youth_Innovation_System.API.Controllers
 
         }
 
-
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
@@ -62,33 +62,54 @@ namespace Youth_Innovation_System.API.Controllers
         {
             if (string.IsNullOrWhiteSpace(authorization) || !authorization.StartsWith("Bearer "))
             {
-                return BadRequest(new { message = "Invalid Authorization header" });
+                return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "Invalid Authorization header"));
             }
 
             var token = authorization.Substring("Bearer ".Length).Trim();
             if (string.IsNullOrEmpty(token))
             {
-                return Unauthorized(new { message = "Token is missing or invalid" });
+                return Unauthorized(new ApiResponse(StatusCodes.Status401Unauthorized, "Token is missing or invalid"));
             }
             await _authService.BlacklistTokenAsync(token);
-
-            return Ok(new { message = "Logged out successfully" });
+            return Ok(new ApiResponse(StatusCodes.Status200OK, "Logged out successfully"));
         }
         [Authorize]
         [HttpPost("ChangePassword")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePasswordDto)
         {
-            
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            userId = null;
-            if(userId is null)
-                return BadRequest();
-            var result = await _authService.ChangePasswordAsync(userId, changePasswordDto);
-            if (result.Succeeded)
+            try
             {
-                return Ok("Password Changed successfully");
+                await _authService.ChangePasswordAsync(userId, changePasswordDto);
+                return Ok(new ApiResponse(StatusCodes.Status200OK, "Password Changed successfully"));
             }
-            return BadRequest("something went wrong");
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiExceptionResponse(StatusCodes.Status400BadRequest, "Something went wrong while changing password", ex.Message));
+            }
+        }
+
+        [HttpPost("Forgot-Password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequestDto request)
+        {
+            var Response = await _authService.SendOtpAsync(request);
+            return StatusCode(Response.StatusCode, Response);
+
+        }
+
+        [HttpPost("Verify-OTP")]
+        public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequestDto request)
+        {
+            var Response = await _authService.VerifyOtpAsync(request);
+            return StatusCode(Response.StatusCode, Response);
+
+        }
+
+        [HttpPost("Reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequestDto request)
+        {
+            var Response = await _authService.ResetPasswordAsync(request);
+            return StatusCode(Response.StatusCode, Response);
         }
     }
 }
