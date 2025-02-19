@@ -5,10 +5,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Youth_Innovation_System.API.Errors;
+using System.Threading.Channels;
 using Youth_Innovation_System.Core.Entities.Identity;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.DTOs.Identity;
+using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity;
 
 namespace Youth_Innovation_System.Service
@@ -132,68 +133,69 @@ namespace Youth_Innovation_System.Service
             BlacklistedTokens.Add(token);
         }
 
-        public async Task ChangePasswordAsync(string userId, ChangePasswordDto model)
+        public async Task<ApiResponse> ChangePasswordAsync(string userId, ChangePasswordDto model)
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                throw new Exception("User not found");
+                return new ApiResponse(StatusCodes.Status404NotFound, "user not found");
             }
             var checkPassword = await _userManager.CheckPasswordAsync(user, model.OldPassword);
             if (!checkPassword)
             {
-                throw new Exception("Old Password is incorrect");
+                return new ApiResponse(StatusCodes.Status400BadRequest,"Old Password is incorrect");
             }
 
             var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
             if (!result.Succeeded)
             {
-                throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
-            }
+                return new ApiExceptionResponse( StatusCodes.Status400BadRequest, string.Join(", ", result.Errors.Select(e => e.Description)));
+			}
+            return new ApiResponse(StatusCodes.Status200OK , "Password Changed successfully");
         }
 
         //Forget Password
-        public async Task<ApiResponse> SendOtpAsync(ForgotPasswordRequestDto request)
-        {
-            var user = await _userManager.FindByEmailAsync(request.Email);
-            if (user == null) return new ApiResponse(StatusCodes.Status404NotFound, "User not found");
+        //public async Task<ApiResponse> SendOtpAsync(ForgotPasswordRequestDto request)
+        //{
+        //    var user = await _userManager.FindByEmailAsync(request.Email);
+        //    if (user == null) return new ApiResponse(StatusCodes.Status404NotFound, "User not found");
 
-            var otp = new Random().Next(100000, 999999).ToString();
-            user.PasswordResetOTP = otp;
-            user.OTPExpiry = DateTime.UtcNow.AddMinutes(5);
-            await _userManager.UpdateAsync(user);
+        //    var otp = new Random().Next(100000, 999999).ToString();
+        //    user.PasswordResetOTP = otp;
+        //    user.OTPExpiry = DateTime.UtcNow.AddMinutes(5);
+        //    await _userManager.UpdateAsync(user);
 
-            await _emailService.SendOtpEmailAsync(user.Email, otp);
-            return new ApiResponse(StatusCodes.Status200OK, "OTP sent successfully");
-        }
+        //    await _emailService.SendOtpEmailAsync(user.Email, otp);
+        //    return new ApiResponse(StatusCodes.Status200OK, "OTP sent successfully");
+        //}
 
-        public async Task<ApiResponse> VerifyOtpAsync(VerifyOtpRequestDto request)
-        {
-            var user = await _userManager.FindByEmailAsync(request.Email);
-            if (user == null || user.PasswordResetOTP != request.OTP || user.OTPExpiry < DateTime.UtcNow)
-                return new ApiResponse(StatusCodes.Status400BadRequest, "Invalid or expired OTP");
+        //public async Task<ApiResponse> VerifyOtpAsync(VerifyOtpRequestDto request)
+        //{
+        //    var user = await _userManager.FindByEmailAsync(request.Email);
+        //    if (user == null || user.PasswordResetOTP != request.OTP || user.OTPExpiry < DateTime.UtcNow)
+        //        return new ApiResponse(StatusCodes.Status400BadRequest, "Invalid or expired OTP");
 
-            return new ApiResponse(StatusCodes.Status200OK, "OTP verified successfully");
+        //    return new ApiResponse(StatusCodes.Status200OK, "OTP verified successfully");
 
-        }
+        //}
 
-        public async Task<ApiResponse> ResetPasswordAsync(ResetPasswordRequestDto request)
-        {
-            var user = await _userManager.FindByEmailAsync(request.Email);
-            if (user == null || user.PasswordResetOTP != request.OTP || user.OTPExpiry < DateTime.UtcNow)
-                return new ApiResponse(StatusCodes.Status400BadRequest, "Invalid or expired OTP");
+        //public async Task<ApiResponse> ResetPasswordAsync(ResetPasswordRequestDto request)
+        //{
+        //    var user = await _userManager.FindByEmailAsync(request.Email);
+        //    if (user == null || user.PasswordResetOTP != request.OTP || user.OTPExpiry < DateTime.UtcNow)
+        //        return new ApiResponse(StatusCodes.Status400BadRequest, "Invalid or expired OTP");
 
 
-            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var result = await _userManager.ResetPasswordAsync(user, token, request.NewPassword);
-            if (!result.Succeeded) return new ApiResponse(StatusCodes.Status400BadRequest, "Password reset failed");
+        //    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+        //    var result = await _userManager.ResetPasswordAsync(user, token, request.NewPassword);
+        //    if (!result.Succeeded) return new ApiResponse(StatusCodes.Status400BadRequest, "Password reset failed");
 
-            user.PasswordResetOTP = null;
-            user.OTPExpiry = null;
-            await _userManager.UpdateAsync(user);
-            return new ApiResponse(StatusCodes.Status400BadRequest, "Password reset failed");
+        //    user.PasswordResetOTP = null;
+        //    user.OTPExpiry = null;
+        //    await _userManager.UpdateAsync(user);
+        //    return new ApiResponse(StatusCodes.Status400BadRequest, "Password reset failed");
 
-        }
+        //}
 
     }
 }

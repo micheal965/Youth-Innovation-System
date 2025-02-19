@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AccountController",
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
     "Method": "ChangePassword",
-    "RelativePath": "api/Account/ChangePassword",
+    "RelativePath": "api/Auth/ChangePassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,9 +16,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AccountController",
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Account/Login",
+    "RelativePath": "api/Auth/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -32,9 +32,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AccountController",
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
     "Method": "Logout",
-    "RelativePath": "api/Account/Logout",
+    "RelativePath": "api/Auth/Logout",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -48,9 +48,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AccountController",
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Account/Register",
+    "RelativePath": "api/Auth/Register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -59,6 +59,32 @@
         "Name": "registerDto",
         "Type": "Youth_Innovation_System.Shared.DTOs.Identity.RegisterDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "Method": "SendEmail",
+    "RelativePath": "api/Auth/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "to",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "subject",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "body",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

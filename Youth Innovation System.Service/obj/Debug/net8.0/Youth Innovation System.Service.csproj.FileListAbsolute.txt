@@ -54,3 +54,5 @@ C:\Users\MICHEAL\source\repos\Youth-Innovation-System\Youth Innovation System.Se
 C:\Users\MICHEAL\source\repos\Youth-Innovation-System\Youth Innovation System.Service\obj\Debug\net8.0\ref\Youth Innovation System.Service.dll
 C:\Users\MICHEAL\source\repos\Youth-Innovation-System\Youth Innovation System.Service\bin\Debug\net8.0\Youth Innovation System.Repository.dll
 C:\Users\MICHEAL\source\repos\Youth-Innovation-System\Youth Innovation System.Service\bin\Debug\net8.0\Youth Innovation System.Repository.pdb
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Service\bin\Debug\net8.0\Youth Innovation System.Repository.dll
+C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System.Service\bin\Debug\net8.0\Youth Innovation System.Repository.pdb

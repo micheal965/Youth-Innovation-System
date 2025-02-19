@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using Youth_Innovation_System.API.Errors;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.DTOs.Identity;
+using Youth_Innovation_System.Service;
+using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity;
 
 namespace Youth_Innovation_System.API.Controllers
@@ -14,11 +15,13 @@ namespace Youth_Innovation_System.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+		private readonly IEmailService _emailService;
 
-        public AuthController(IAuthService authService)
+		public AuthController(IAuthService authService,IEmailService emailService)
         {
             _authService = authService;
-        }
+			_emailService = emailService;
+		}
 
         // Register a new user
         [HttpPost("Register")]
@@ -56,7 +59,14 @@ namespace Youth_Innovation_System.API.Controllers
                 return Unauthorized(new ApiResponse(StatusCodes.Status401Unauthorized, ex.Message));
             }
         }
-        [Authorize]
+
+		[HttpPost("send")]
+		public async Task<IActionResult> SendEmail(string to, string subject , string body)
+		{
+			await _emailService.SendEmailAsync(to,subject,  body);
+			return Ok("Email Sent Successfully!");
+		}
+		[Authorize]
         [HttpPost("Logout")]
         public async Task<IActionResult> Logout([FromHeader] string authorization)
         {
@@ -89,27 +99,27 @@ namespace Youth_Innovation_System.API.Controllers
             }
         }
 
-        [HttpPost("Forgot-Password")]
-        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequestDto request)
-        {
-            var Response = await _authService.SendOtpAsync(request);
-            return StatusCode(Response.StatusCode, Response);
+   //     [HttpPost("Forgot-Password")]
+   //     public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequestDto request)
+   //     {
+			//var Response = await _authService.SendOtpAsync(request);
+   //         return StatusCode(Response.StatusCode, Response);
 
-        }
+   //     }
 
-        [HttpPost("Verify-OTP")]
-        public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequestDto request)
-        {
-            var Response = await _authService.VerifyOtpAsync(request);
-            return StatusCode(Response.StatusCode, Response);
+        //[HttpPost("Verify-OTP")]
+        //public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequestDto request)
+        //{
+        //    var Response = await _authService.VerifyOtpAsync(request);
+        //    return StatusCode(Response.StatusCode, Response);
 
-        }
+        //}
 
-        [HttpPost("Reset-password")]
-        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequestDto request)
-        {
-            var Response = await _authService.ResetPasswordAsync(request);
-            return StatusCode(Response.StatusCode, Response);
-        }
+   //     [HttpPost("Reset-password")]
+   //     public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequestDto request)
+   //     {
+			//var Response = await _authService.ResetPasswordAsync(request);
+   //         return StatusCode(Response.StatusCode, Response);
+   //     }
     }
 }

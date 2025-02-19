@@ -1,25 +1,29 @@
-﻿namespace Youth_Innovation_System.API.Errors
-{
-    public class ApiResponse
-    {
-        public int StatusCode { get; set; }
-        public string? Message { get; set; }
-        public ApiResponse(int statuscode, string? message = null)
-        {
-            StatusCode = statuscode;
-            Message = message ?? GetMessageForStatusCode(StatusCode);
-        }
+﻿using System.Net;
 
-        private string? GetMessageForStatusCode(int statusCode)
-        {
-            return statusCode switch
-            {
-                StatusCodes.Status400BadRequest => "Bad Request",
-                StatusCodes.Status401Unauthorized => "Unauthorized",
-                StatusCodes.Status403Forbidden => "Forbidden",
-                StatusCodes.Status404NotFound => "Not Found",
-                StatusCodes.Status500InternalServerError => "Internal Server Error"
-            };
-        }
-    }
+namespace Youth_Innovation_System.Shared.ApiResponses
+{
+	public class ApiResponse
+	{
+		public int StatusCode { get; set; }
+		public string? Message { get; set; }
+
+		public ApiResponse(int statusCode, string? message = null)
+		{
+			StatusCode = statusCode;
+			Message = message ?? GetMessageForStatusCode((HttpStatusCode)statusCode);
+		}
+
+		private string? GetMessageForStatusCode(HttpStatusCode statusCode)
+		{
+			return statusCode switch
+			{
+				HttpStatusCode.BadRequest => "Bad Request",
+				HttpStatusCode.Unauthorized => "Unauthorized",
+				HttpStatusCode.Forbidden => "Forbidden",
+				HttpStatusCode.NotFound => "Not Found",
+				HttpStatusCode.InternalServerError => "Internal Server Error",
+				_ => "An error occurred"
+			};
+		}
+	}
 }
