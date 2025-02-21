@@ -49,4 +49,4 @@ Contributions are welcome! Feel free to fork the repo and submit a pull request.
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
-For any inquiries, reach out via GitHub Issues or email me at `your-email@example.com`.
+For any inquiries, reach out via GitHub Issues or email me at `michealghobriall@gmail.com`.
