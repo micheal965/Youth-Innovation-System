@@ -1215,6 +1215,7 @@
           "Microsoft.AspNetCore.Identity": "2.3.0",
           "System.IdentityModel.Tokens.Jwt": "8.3.1",
           "Youth Innovation System.Core": "1.0.0",
+          "Youth Innovation System.Repository": "1.0.0",
           "Youth Innovation System.Shared": "1.0.0"
         },
         "runtime": {

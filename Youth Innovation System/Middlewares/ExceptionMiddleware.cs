@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using Youth_Innovation_System.API.Errors;
+using Youth_Innovation_System.Shared.ApiResponses;
 
 namespace Youth_Innovation_System.API.Middlewares
 {

@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "MgBFfYaXcy0=",
   "success": true,
   "projectFilePath": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj",
@@ -9,5 +10,11 @@
     "C:\\Users\\MICHEAL\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\MICHEAL\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "7dfu5T8LMxg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> 92cbe13a0af084ac8d397beb9a1040c95b16841f
   "logs": []
 }

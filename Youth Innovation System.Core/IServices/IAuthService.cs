@@ -13,11 +13,18 @@ namespace Youth_Innovation_System.Core.IServices
         public Task<LoginResponseDto> LoginAsync(LoginDto loginDto);
         public Task<bool> IsTokenBlacklistedAsync(string token);
         public Task BlacklistTokenAsync(string token);
+<<<<<<< HEAD
         public Task ChangePasswordAsync(string userId, ChangePasswordDto model);
         public Task<ApiResponse> SendOtpAsync(ForgotPasswordRequestDto request);
         public Task<ApiResponse> VerifyOtpAsync(VerifyOtpRequestDto request);
         public Task<ApiResponse> ResetPasswordAsync(ResetPasswordRequestDto request);
         public Task<IReadOnlyList<UserLoginHistory>> GetLoginHistory(string userId)
+=======
+        public Task<ApiResponse> ChangePasswordAsync(string userId, ChangePasswordDto model);
+        //public Task<ApiResponse> SendOtpAsync(ForgotPasswordRequestDto request);
+        //public Task<ApiResponse> VerifyOtpAsync(VerifyOtpRequestDto request);
+        //public Task<ApiResponse> ResetPasswordAsync(ResetPasswordRequestDto request);
+>>>>>>> 92cbe13a0af084ac8d397beb9a1040c95b16841f
 
     }
 }

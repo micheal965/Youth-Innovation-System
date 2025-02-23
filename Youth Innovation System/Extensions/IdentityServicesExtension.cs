@@ -14,7 +14,8 @@ namespace Youth_Innovation_System.Extensions
         public async static Task<IServiceCollection> AddIdentityServices(this IServiceCollection Services, IConfiguration Configuration)
         {
             Services.AddScoped<IAuthService, AuthService>();
-            Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+			Services.AddTransient<IEmailService, EmailService>();
+			Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
