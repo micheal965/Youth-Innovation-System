@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Youth_Innovation_System.API.Errors;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.DTOs.Identity;
+using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity;
 
 namespace Youth_Innovation_System.API.Controllers
@@ -32,7 +34,8 @@ namespace Youth_Innovation_System.API.Controllers
                 var loginDto = new LoginDto()
                 {
                     Email = registerDto.Email,
-                    Password = registerDto.Password
+                    Password = registerDto.Password,
+                    ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString()
                 };
 
                 var loginResponse = await _authService.LoginAsync(loginDto);
@@ -110,6 +113,16 @@ namespace Youth_Innovation_System.API.Controllers
         {
             var Response = await _authService.ResetPasswordAsync(request);
             return StatusCode(Response.StatusCode, Response);
+        }
+
+        [HttpGet("login-history/{userId}")]
+        public async Task<IActionResult> GetLoginHistory(string userId)
+        {
+            var historyList = await _authService.GetLoginHistory(userId);
+            if (historyList == null)
+                return NotFound(new ApiResponse(StatusCodes.Status404NotFound, "There is no login history"));
+
+            return Ok(historyList);
         }
     }
 }

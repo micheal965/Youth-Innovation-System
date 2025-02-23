@@ -7,6 +7,7 @@ namespace Youth_Innovation_System.Extensions
     {
         public async static Task AddAppServices(this IServiceCollection Services)
         {
+            Services.AddHttpContextAccessor();
             Services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = (actioncontext) =>

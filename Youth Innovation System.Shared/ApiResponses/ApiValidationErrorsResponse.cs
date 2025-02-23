@@ -1,10 +1,12 @@
-﻿namespace Youth_Innovation_System.API.Errors
+﻿using System.Net;
+
+namespace Youth_Innovation_System.Shared.ApiResponses
 {
     public class ApiValidationErrorsResponse : ApiResponse
     {
         public IEnumerable<string> Errors { get; set; }
         public ApiValidationErrorsResponse()
-            : base(StatusCodes.Status400BadRequest)
+            : base((int)HttpStatusCode.BadRequest)
         {
             Errors = new List<string>();
         }

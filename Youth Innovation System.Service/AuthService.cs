@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Youth_Innovation_System.API.Errors;
 using Youth_Innovation_System.Core.Entities.Identity;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.DTOs.Identity;
+using Youth_Innovation_System.Repository.Identity;
+using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity;
 
 namespace Youth_Innovation_System.Service
@@ -19,15 +21,19 @@ namespace Youth_Innovation_System.Service
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly AppIdentityDbContext _appIdentityDbContext;
         private readonly IConfiguration _configuration;
         public AuthService()
         {
 
         }
-        public AuthService(IConfiguration configuration, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AuthService(AppIdentityDbContext appIdentityDbContext, IConfiguration configuration, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _httpContextAccessor = httpContextAccessor;
+            _appIdentityDbContext = appIdentityDbContext;
             _configuration = configuration;
         }
 
@@ -46,6 +52,8 @@ namespace Youth_Innovation_System.Service
             {
                 throw new UnauthorizedAccessException("Invalid login attempt!");
             }
+            //track ipAddress in userloginhistory table
+            await SaveLoginAttempt(loginDto.Email);
             //returning Response
             var roles = await _userManager.GetRolesAsync(user);
             return new LoginResponseDto()
@@ -194,6 +202,31 @@ namespace Youth_Innovation_System.Service
             return new ApiResponse(StatusCodes.Status400BadRequest, "Password reset failed");
 
         }
+        public async Task<IReadOnlyList<UserLoginHistory>> GetLoginHistory(string userId)
+        {
+            return await _appIdentityDbContext.userLoginHistories
+                .Where(l => l.ApplicationUserId == userId)
+                .OrderByDescending(l => l.LoginTime).ToListAsync();
+        }
+        public async Task SaveLoginAttempt(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                var ipAddress = _httpContextAccessor.HttpContext?.Request.Headers["X-Forwarded-For"].FirstOrDefault();
 
+                if (string.IsNullOrEmpty(ipAddress))
+                    ipAddress = _httpContextAccessor.HttpContext?.Connection.RemoteIpAddress?.ToString();//Fetch IP here
+
+                await _appIdentityDbContext.userLoginHistories.AddAsync(new UserLoginHistory()
+                {
+                    ApplicationUserId = user.Id,
+                    ipAddress = ipAddress,
+                    LoginTime = DateTime.UtcNow,
+
+                });
+                await _appIdentityDbContext.SaveChangesAsync();
+            }
+        }
     }
 }
