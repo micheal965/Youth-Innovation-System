@@ -4281,26 +4281,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Antoinette Emad\\.nuget\\packages\\": {}
+    "C:\\Users\\MICHEAL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Repository\\Youth Innovation System.Repository.csproj",
+      "projectUniqueName": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Repository\\Youth Innovation System.Repository.csproj",
       "projectName": "Youth Innovation System.Repository",
-      "projectPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Repository\\Youth Innovation System.Repository.csproj",
-      "packagesPath": "C:\\Users\\Antoinette Emad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Repository\\obj\\",
+      "projectPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Repository\\Youth Innovation System.Repository.csproj",
+      "packagesPath": "C:\\Users\\MICHEAL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Antoinette Emad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MICHEAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -4308,8 +4307,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Youth Innovation System.Core.csproj": {
-              "projectPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Youth Innovation System.Core.csproj"
+            "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Core\\Youth Innovation System.Core.csproj": {
+              "projectPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Core\\Youth Innovation System.Core.csproj"
             }
           }
         }
@@ -4363,5 +4362,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Repository\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

@@ -234,6 +234,32 @@ namespace Youth_Innovation_System.Repository.Identity.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Identity.UserLoginHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("LoginTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ipAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("userLoginHistories");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -283,6 +309,61 @@ namespace Youth_Innovation_System.Repository.Identity.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Identity.ApplicationUser", b =>
+                {
+                    b.OwnsMany("Youth_Innovation_System.Core.Entities.Identity.RefreshToken", "refreshTokens", b1 =>
+                        {
+                            b1.Property<string>("ApplicationUserId")
+                                .HasColumnType("nvarchar(450)");
+
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<DateTime>("createdOn")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime>("expiryDate")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime?>("revokedOn")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("token")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("ApplicationUserId", "Id");
+
+                            b1.ToTable("RefreshToken");
+
+                            b1.WithOwner("ApplicationUser")
+                                .HasForeignKey("ApplicationUserId");
+
+                            b1.Navigation("ApplicationUser");
+                        });
+
+                    b.Navigation("refreshTokens");
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Identity.UserLoginHistory", b =>
+                {
+                    b.HasOne("Youth_Innovation_System.Core.Entities.Identity.ApplicationUser", "ApplicationUser")
+                        .WithMany("userLoginsHistory")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Identity.ApplicationUser", b =>
+                {
+                    b.Navigation("userLoginsHistory");
                 });
 #pragma warning restore 612, 618
         }

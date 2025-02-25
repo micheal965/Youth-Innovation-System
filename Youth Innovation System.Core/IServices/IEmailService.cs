@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Youth_Innovation_System.Core.IServices
+﻿namespace Youth_Innovation_System.Core.IServices
 {
-	public interface IEmailService
-	{
-		Task SendEmailAsync(string to, string subject, string body);
-	}
+    public interface IEmailService
+    {
+        //General
+        Task SendEmailAsync(string to, string subject, string body);
+
+    }
 }

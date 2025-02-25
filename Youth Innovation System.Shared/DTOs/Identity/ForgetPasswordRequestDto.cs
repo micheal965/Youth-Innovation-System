@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Youth_Innovation_System.Shared.DTOs.Identity
 {
-    public class ForgotPasswordRequestDto
+    public class ForgetPasswordRequestDto
     {
         public string Email { get; set; }
     }

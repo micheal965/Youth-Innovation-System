@@ -1,14 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.DTOs.Identity;
-<<<<<<< HEAD
-=======
-using Youth_Innovation_System.Service;
->>>>>>> 92cbe13a0af084ac8d397beb9a1040c95b16841f
 using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity;
 
@@ -19,13 +12,15 @@ namespace Youth_Innovation_System.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
-		private readonly IEmailService _emailService;
+        private readonly IPasswordService _passwordService;
+        private readonly IUserVerificationService _userVerificationService;
 
-		public AuthController(IAuthService authService,IEmailService emailService)
+        public AuthController(IAuthService authService, IPasswordService passwordService, IUserVerificationService userVerificationService)
         {
             _authService = authService;
-			_emailService = emailService;
-		}
+            _passwordService = passwordService;
+            _userVerificationService = userVerificationService;
+        }
 
         // Register a new user
         [HttpPost("Register")]
@@ -35,19 +30,19 @@ namespace Youth_Innovation_System.API.Controllers
 
             if (result.Succeeded)
             {
-                // Automatically login after successful registration
-                var loginDto = new LoginDto()
+                try
                 {
-                    Email = registerDto.Email,
-                    Password = registerDto.Password,
-                    ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString()
-                };
-
-                var loginResponse = await _authService.LoginAsync(loginDto);
-                return Ok(loginResponse); // Returning login response (including JWT token)
+                    //Send Verification Email
+                    await _userVerificationService.RequestVerificationEmailAsync(registerDto.Email);
+                    return Ok(new ApiResponse(StatusCodes.Status200OK, "Registration successful! Please check your email for a verification link to activate your account."));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "There is an error while sending verification email."));
+                }
 
             }
-            return BadRequest();
+            return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "There is an error, Please register again later!"));
 
         }
 
@@ -65,13 +60,7 @@ namespace Youth_Innovation_System.API.Controllers
             }
         }
 
-		[HttpPost("send")]
-		public async Task<IActionResult> SendEmail(string to, string subject , string body)
-		{
-			await _emailService.SendEmailAsync(to,subject,  body);
-			return Ok("Email Sent Successfully!");
-		}
-		[Authorize]
+        [Authorize]
         [HttpPost("Logout")]
         public async Task<IActionResult> Logout([FromHeader] string authorization)
         {
@@ -88,62 +77,28 @@ namespace Youth_Innovation_System.API.Controllers
             await _authService.BlacklistTokenAsync(token);
             return Ok(new ApiResponse(StatusCodes.Status200OK, "Logged out successfully"));
         }
-        [Authorize]
-        [HttpPost("ChangePassword")]
-        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePasswordDto)
+        [HttpGet("Confirm-Email")]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            try
-            {
-                await _authService.ChangePasswordAsync(userId, changePasswordDto);
-                return Ok(new ApiResponse(StatusCodes.Status200OK, "Password Changed successfully"));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new ApiExceptionResponse(StatusCodes.Status400BadRequest, "Something went wrong while changing password", ex.Message));
-            }
+            // Confirm the user's email
+            var result = await _authService.ConfirmEmailAsync(userId, token);
+            return StatusCode(result.StatusCode, result);
         }
-
-   //     [HttpPost("Forgot-Password")]
-   //     public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequestDto request)
-   //     {
-			//var Response = await _authService.SendOtpAsync(request);
-   //         return StatusCode(Response.StatusCode, Response);
-
-   //     }
-
-        //[HttpPost("Verify-OTP")]
-        //public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequestDto request)
-        //{
-        //    var Response = await _authService.VerifyOtpAsync(request);
-        //    return StatusCode(Response.StatusCode, Response);
-
-        //}
-
-<<<<<<< HEAD
-        [HttpPost("Reset-password")]
-        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequestDto request)
+        [HttpPost("Request-Reset-password")]
+        public async Task<IActionResult> RequestResetPassword([FromBody] ResetPasswordRequestDto request)
         {
-            var Response = await _authService.ResetPasswordAsync(request);
+            var Response = await _userVerificationService.RequestPasswordResetAsync(request.Email);
             return StatusCode(Response.StatusCode, Response);
         }
-
-        [HttpGet("login-history/{userId}")]
-        public async Task<IActionResult> GetLoginHistory(string userId)
+        [HttpPost("Reset-Password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto model)
         {
-            var historyList = await _authService.GetLoginHistory(userId);
-            if (historyList == null)
-                return NotFound(new ApiResponse(StatusCodes.Status404NotFound, "There is no login history"));
+            var result = await _passwordService.ResetPasswordAsync(model.email, model.token, model.newPassword);
+            if (!result.Succeeded)
+                return BadRequest(new { statusCode = StatusCodes.Status400BadRequest, Description = result.Errors });
 
-            return Ok(historyList);
+            return Ok(new ApiResponse(StatusCodes.Status200OK, "Password has been reset successfully."));
         }
-=======
-   //     [HttpPost("Reset-password")]
-   //     public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequestDto request)
-   //     {
-			//var Response = await _authService.ResetPasswordAsync(request);
-   //         return StatusCode(Response.StatusCode, Response);
-   //     }
->>>>>>> 92cbe13a0af084ac8d397beb9a1040c95b16841f
+
     }
 }

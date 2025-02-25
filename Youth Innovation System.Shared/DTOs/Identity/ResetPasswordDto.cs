@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Youth_Innovation_System.Shared.DTOs.Identity
 {
-    public class VerifyOtpRequestDto
+    public class ResetPasswordDto
     {
-        public string Email { get; set; }
-        public string OTP { get; set; }
+        public string token { get; set; }
+        public string email { get; set; }
+        public string newPassword { get; set; }
     }
 }

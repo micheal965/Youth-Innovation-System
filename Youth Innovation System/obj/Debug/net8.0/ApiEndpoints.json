@@ -1,16 +1,21 @@
 [
   {
     "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/Auth/ChangePassword",
-    "HttpMethod": "POST",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Auth/Confirm-Email",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "changePasswordDto",
-        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.ChangePasswordDto",
-        "IsRequired": true
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -65,26 +70,32 @@
   },
   {
     "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
-    "Method": "SendEmail",
-    "RelativePath": "api/Auth/send",
+    "Method": "RequestResetPassword",
+    "RelativePath": "api/Auth/Request-Reset-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "to",
-        "Type": "System.String",
-        "IsRequired": false
-      },
+        "Name": "request",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.ResetPasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Auth/Reset-Password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "subject",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "body",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "model",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.ResetPasswordDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -133,6 +144,64 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.EmailController",
+    "Method": "SendEmail",
+    "RelativePath": "api/Email/Send-Email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "to",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "subject",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "body",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/User/ChangePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "changePasswordDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "Method": "GetLoginHistory",
+    "RelativePath": "api/User/login-history/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
