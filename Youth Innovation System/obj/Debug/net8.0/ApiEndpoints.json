@@ -101,6 +101,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "Method": "RevokeRefreshToken",
+    "RelativePath": "api/Auth/Revoke-Refresh-Token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "revokeRefreshTokenDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.RevokeRefreshTokenDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "Method": "RotateRefreshToken",
+    "RelativePath": "api/Auth/Rotate-Refresh-Token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Youth_Innovation_System.APIs.Controllers.BuggyController",
     "Method": "GetBadRequest",
     "RelativePath": "api/Buggy/BadRequest",
@@ -155,19 +181,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "to",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "subject",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "body",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "sendEmailDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.SendEmailDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -175,7 +191,7 @@
   {
     "ContainingType": "Youth_Innovation_System.Controllers.UserController",
     "Method": "ChangePassword",
-    "RelativePath": "api/User/ChangePassword",
+    "RelativePath": "api/User/Change-Password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

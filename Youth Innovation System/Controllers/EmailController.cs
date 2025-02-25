@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.Shared.ApiResponses;
+using Youth_Innovation_System.Shared.DTOs;
 
 namespace Youth_Innovation_System.Controllers
 {
@@ -15,9 +16,9 @@ namespace Youth_Innovation_System.Controllers
             _emailService = emailService;
         }
         [HttpPost("Send-Email")]
-        public async Task<IActionResult> SendEmail(string to, string subject, string body)
+        public async Task<IActionResult> SendEmail(SendEmailDto sendEmailDto)
         {
-            await _emailService.SendEmailAsync(to, subject, body);
+            await _emailService.SendEmailAsync(sendEmailDto.to, sendEmailDto.subject, sendEmailDto.body);
             return Ok(new ApiResponse(StatusCodes.Status200OK, "Email Sent Successfully!"));
         }
 

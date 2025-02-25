@@ -59,6 +59,28 @@ namespace Youth_Innovation_System.API.Controllers
                 return Unauthorized(new ApiResponse(StatusCodes.Status401Unauthorized, ex.Message));
             }
         }
+        [HttpPost("Rotate-Refresh-Token")]
+        public async Task<IActionResult> RotateRefreshToken()
+        {
+            var token = Request.Cookies["refreshToken"];
+            var result = await _authService.RotateRefreshTokenAsync(token);
+            if (result.IsAuthenticated)
+                return Ok(result);
+            return BadRequest(result);
+        }
+        [HttpPost("Revoke-Refresh-Token")]
+        public async Task<IActionResult> RevokeRefreshToken(RevokeRefreshTokenDto revokeRefreshTokenDto)
+        {
+            //accepting token from body or cookies
+            var token = revokeRefreshTokenDto.token ?? Request.Cookies["refreshToken"];
+            if (token == null)
+                return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "Token is Required!"));
+            var result = await _authService.RevokeRefreshTokenAsync(token);
+            if (!result)
+                return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "Invalid token!"));
+
+            return Ok(new ApiResponse(StatusCodes.Status200OK, "Token Revoked successfully!"));
+        }
 
         [Authorize]
         [HttpPost("Logout")]

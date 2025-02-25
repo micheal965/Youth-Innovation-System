@@ -29,19 +29,14 @@ namespace Youth_Innovation_System.Controllers
             return Ok(historyList);
         }
         [Authorize]
-        [HttpPost("ChangePassword")]
+        [HttpPost("Change-Password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePasswordDto)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            try
-            {
-                await _passwordService.ChangePasswordAsync(userId, changePasswordDto);
-                return Ok(new ApiResponse(StatusCodes.Status200OK, "Password Changed successfully"));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new ApiExceptionResponse(StatusCodes.Status400BadRequest, "Something went wrong while changing password", ex.Message));
-            }
+
+            var result = await _passwordService.ChangePasswordAsync(userId, changePasswordDto);
+            return StatusCode(result.StatusCode, result);
+
         }
     }
 }

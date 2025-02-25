@@ -10,11 +10,13 @@ namespace Youth_Innovation_System.Core.IServices
     {
         Task<LoginResponseDto> LoginAsync(LoginDto loginDto);
         Task<IdentityResult> RegisterAsync(RegisterDto registerDto);
-        Task<string> CreateWebTokenAsync(ApplicationUser user);
+        Task<string> CreateJwtWebTokenAsync(ApplicationUser user);
         Task<bool> IsTokenBlacklistedAsync(string token);
         Task BlacklistTokenAsync(string token);
         //confirm email in db
         Task<ApiResponse> ConfirmEmailAsync(string userId, string token);
+        Task<RotateRefreshTokenResponseDto> RotateRefreshTokenAsync(string token);
+        Task<bool> RevokeRefreshTokenAsync(string token);
 
     }
 }
