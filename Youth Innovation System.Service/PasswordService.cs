@@ -10,16 +10,12 @@ namespace Youth_Innovation_System.Service
 {
     public class PasswordService : IPasswordService
     {
-        private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IEmailService _emailService;
 
-        public PasswordService(IConfiguration configuration, UserManager<ApplicationUser> userManager
-            , IEmailService emailService)
+        public PasswordService(UserManager<ApplicationUser> userManager
+            )
         {
-            _configuration = configuration;
             _userManager = userManager;
-            _emailService = emailService;
         }
         public async Task<ApiResponse> ChangePasswordAsync(string userId, ChangePasswordDto model)
         {
@@ -43,7 +39,7 @@ namespace Youth_Innovation_System.Service
         }
 
         // Forget Password
-
+        //Not tested because it required integration with front
         /// <summary>
         /// after clicking the reset password link and enter inputdata
         /// </summary>

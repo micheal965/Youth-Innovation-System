@@ -35,6 +35,7 @@ namespace Youth_Innovation_System.Service
             await smtpClient.SendMailAsync(mailMessage);
         }
 
+
     }
 
 }
