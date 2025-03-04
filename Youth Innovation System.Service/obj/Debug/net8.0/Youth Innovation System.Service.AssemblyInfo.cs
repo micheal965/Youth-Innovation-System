@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Youth Innovation System.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad5ac8e64a5d514ce7d0e6508c7dc7b0c50113be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3af66aaa05bc58fe86f95639d33306755d31ab7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Youth Innovation System.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Youth Innovation System.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

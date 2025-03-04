@@ -29,5 +29,6 @@ namespace Youth_Innovation_System.Shared.DTOs.Identity
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }  // User's phone number
         public string ProfilePictureUrl { get; set; }  // Profile picture URL
+        public int role { get; set; }
     }
 }

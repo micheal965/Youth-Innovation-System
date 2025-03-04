@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Youth_Innovation_System.Core.IServices;
+using Youth_Innovation_System.Core.Roles;
 using Youth_Innovation_System.DTOs.Identity;
 using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity;
@@ -120,6 +121,12 @@ namespace Youth_Innovation_System.API.Controllers
                 return BadRequest(new { statusCode = StatusCodes.Status400BadRequest, Description = result.Errors });
 
             return Ok(new ApiResponse(StatusCodes.Status200OK, "Password has been reset successfully."));
+        }
+        [Authorize(Roles = UserRoles.Admin)]
+        public async Task<IActionResult> AddRoleToUser(AssignRoleDto assignRoleDto)
+        {
+            var result = await _authService.AddUserRoleAsync(assignRoleDto.UserId, assignRoleDto.role);
+            return StatusCode(result.StatusCode, result);
         }
 
     }

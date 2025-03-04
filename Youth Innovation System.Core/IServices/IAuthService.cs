@@ -17,6 +17,6 @@ namespace Youth_Innovation_System.Core.IServices
         Task<ApiResponse> ConfirmEmailAsync(string userId, string token);
         Task<RotateRefreshTokenResponseDto> RotateRefreshTokenAsync(string token);
         Task<bool> RevokeRefreshTokenAsync(string token);
-
+        Task<ApiResponse> AddUserRoleAsync(string UserId, string role);
     }
 }

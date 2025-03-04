@@ -3,25 +3,29 @@
   "WorkspaceRootPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|c:\\users\\micheal\\source\\repos\\youth-innovation-system\\youth innovation system.service\\userverificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|solutionrelative:youth innovation system.service\\userverificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\micheal\\source\\repos\\youth-innovation-system\\youth innovation system\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E4E74680-7F65-47FA-8D7C-8AFF1D019DD1}|Youth Innovation System.UnitTesting\\Youth Innovation System.UnitTesting.csproj|c:\\users\\micheal\\source\\repos\\youth-innovation-system\\youth innovation system.unittesting\\passwordservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E4E74680-7F65-47FA-8D7C-8AFF1D019DD1}|Youth Innovation System.UnitTesting\\Youth Innovation System.UnitTesting.csproj|solutionrelative:youth innovation system.unittesting\\passwordservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\micheal\\source\\repos\\youth-innovation-system\\youth innovation system\\extensions\\identityservicesextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\extensions\\identityservicesextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|c:\\users\\micheal\\source\\repos\\youth-innovation-system\\youth innovation system.service\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|solutionrelative:youth innovation system.service\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\micheal\\source\\repos\\youth-innovation-system\\youth innovation system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\micheal\\source\\repos\\youth-innovation-system\\youth innovation system\\extensions\\applicationservicesextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\extensions\\applicationservicesextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 200,
+          "DockedWidth": 14,
           "SelectedChildIndex": 4,
           "Children": [
             {
@@ -42,47 +46,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PasswordService.cs",
-              "DocumentMoniker": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Service\\PasswordService.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Service\\PasswordService.cs",
-              "ToolTip": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Service\\PasswordService.cs",
-              "RelativeToolTip": "Youth Innovation System.Service\\PasswordService.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAgwDkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T22:25:12.411Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserVerificationService.cs",
-              "DocumentMoniker": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Service\\UserVerificationService.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Service\\UserVerificationService.cs",
-              "ToolTip": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.Service\\UserVerificationService.cs",
-              "RelativeToolTip": "Youth Innovation System.Service\\UserVerificationService.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Youth Innovation System\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Youth Innovation System\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAswIAAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T22:50:08.658Z",
+              "WhenOpened": "2025-03-04T15:05:32.734Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PasswordServiceTests.cs",
-              "DocumentMoniker": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.UnitTesting\\PasswordServiceTests.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.UnitTesting\\PasswordServiceTests.cs",
-              "ToolTip": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System.UnitTesting\\PasswordServiceTests.cs",
-              "RelativeToolTip": "Youth Innovation System.UnitTesting\\PasswordServiceTests.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAAApwJMAAAAAAAAAAAAAAA==",
+              "Title": "IdentityServicesExtension.cs",
+              "DocumentMoniker": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Extensions\\IdentityServicesExtension.cs",
+              "RelativeDocumentMoniker": "Youth Innovation System\\Extensions\\IdentityServicesExtension.cs",
+              "ToolTip": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Extensions\\IdentityServicesExtension.cs",
+              "RelativeToolTip": "Youth Innovation System\\Extensions\\IdentityServicesExtension.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowBcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T21:48:03.453Z",
+              "WhenOpened": "2025-03-04T14:17:41.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationServicesExtension.cs",
+              "DocumentMoniker": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Extensions\\ApplicationServicesExtension.cs",
+              "RelativeDocumentMoniker": "Youth Innovation System\\Extensions\\ApplicationServicesExtension.cs",
+              "ToolTip": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Extensions\\ApplicationServicesExtension.cs",
+              "RelativeToolTip": "Youth Innovation System\\Extensions\\ApplicationServicesExtension.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T14:19:15.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Program.cs",
+              "RelativeDocumentMoniker": "Youth Innovation System\\Program.cs",
+              "ToolTip": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Program.cs",
+              "RelativeToolTip": "Youth Innovation System\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T14:16:32.71Z",
               "EditorCaption": ""
             }
           ]

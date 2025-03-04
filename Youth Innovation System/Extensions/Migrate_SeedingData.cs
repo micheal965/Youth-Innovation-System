@@ -18,14 +18,17 @@ namespace Youth_Innovation_System.Extensions
             // var _dbcontext = services.GetRequiredService<ApplicationDbContext>();
             var _Identitydbcontext = services.GetRequiredService<AppIdentityDbContext>();
 
-
             try
             {
                 //Add migrations
                 //await _dbcontext.Database.MigrateAsync();
                 await _Identitydbcontext.Database.MigrateAsync();
 
-                //seeding Data
+                //seeding Roles
+                await services.SeedRoles();
+                //seeding admin
+                var usermanager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                await usermanager.SeedAdmin();
                 //await ApplicationContextSeed.DataSeed(_dbcontext);
                 //var usermanager = services.GetRequiredService<UserManager<ApplicationUser>>();
                 //await AppIdentityDbContextSeed.SeedUsersAsync(usermanager);
