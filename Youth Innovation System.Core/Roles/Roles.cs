@@ -1,8 +1,12 @@
-﻿namespace Youth_Innovation_System.Core.Roles
+﻿using System.Runtime.Serialization;
+
+namespace Youth_Innovation_System.Core.Roles
 {
-    public static class UserRoles
+    public enum UserRoles
     {
-        public const string Admin = "Admin";
-        public const string User = "User";
+        [EnumMember(Value = "Admin")]
+        Admin,
+        [EnumMember(Value = "User")]
+        User
     }
 }

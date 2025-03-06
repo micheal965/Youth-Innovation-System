@@ -21,7 +21,7 @@ namespace Youth_Innovation_System.Repository.Identity
                     EmailConfirmed = true,
                 };
                 await userManager.CreateAsync(user, "P@$$w0rd");
-                await userManager.AddToRoleAsync(user, UserRoles.Admin);
+                await userManager.AddToRoleAsync(user, UserRoles.Admin.ToString());
             }
         }
     }

@@ -42,7 +42,6 @@ namespace Youth_Innovation_System.Extensions
                     {
                         Errors = errors
                     };
-
                     return new BadRequestObjectResult(apiresponse);
                 };
             });

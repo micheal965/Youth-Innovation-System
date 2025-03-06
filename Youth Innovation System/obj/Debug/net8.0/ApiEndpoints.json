@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "Method": "AddRoleToUser",
+    "RelativePath": "api/Auth/AddRoleToUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignRoleDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.AssignRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
     "Method": "ConfirmEmail",
     "RelativePath": "api/Auth/Confirm-Email",
     "HttpMethod": "GET",

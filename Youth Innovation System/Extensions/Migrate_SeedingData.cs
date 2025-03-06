@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Youth_Innovation_System.Core.Entities.Identity;
+using Youth_Innovation_System.Repository.Data;
 using Youth_Innovation_System.Repository.Identity;
 
 namespace Youth_Innovation_System.Extensions
@@ -15,13 +16,13 @@ namespace Youth_Innovation_System.Extensions
 
             var loggerfactory = services.GetRequiredService<ILoggerFactory>();
 
-            // var _dbcontext = services.GetRequiredService<ApplicationDbContext>();
+            var _dbcontext = services.GetRequiredService<ApplicationDbContext>();
             var _Identitydbcontext = services.GetRequiredService<AppIdentityDbContext>();
 
             try
             {
                 //Add migrations
-                //await _dbcontext.Database.MigrateAsync();
+                await _dbcontext.Database.MigrateAsync();
                 await _Identitydbcontext.Database.MigrateAsync();
 
                 //seeding Roles
@@ -30,8 +31,6 @@ namespace Youth_Innovation_System.Extensions
                 var usermanager = services.GetRequiredService<UserManager<ApplicationUser>>();
                 await usermanager.SeedAdmin();
                 //await ApplicationContextSeed.DataSeed(_dbcontext);
-                //var usermanager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                //await AppIdentityDbContextSeed.SeedUsersAsync(usermanager);
             }
             catch (Exception ex)
             {

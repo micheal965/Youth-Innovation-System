@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Youth_Innovation_System.API.Middlewares;
 using Youth_Innovation_System.Extensions;
 using Youth_Innovation_System.Middlewares;
+using Youth_Innovation_System.Repository.Data;
 using Youth_Innovation_System.Repository.Identity;
 
 namespace Youth_Innovation_System
@@ -23,6 +24,10 @@ namespace Youth_Innovation_System
                 options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
             });
 
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
             //add identityservices
             await builder.Services.AddIdentityServices(builder.Configuration);
             //add applicationservices

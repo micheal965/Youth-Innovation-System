@@ -122,7 +122,8 @@ namespace Youth_Innovation_System.API.Controllers
 
             return Ok(new ApiResponse(StatusCodes.Status200OK, "Password has been reset successfully."));
         }
-        [Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Roles = nameof(UserRoles.Admin))]
+        [HttpPost("AddRoleToUser")]
         public async Task<IActionResult> AddRoleToUser(AssignRoleDto assignRoleDto)
         {
             var result = await _authService.AddUserRoleAsync(assignRoleDto.UserId, assignRoleDto.role);

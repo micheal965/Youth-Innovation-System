@@ -112,7 +112,7 @@ namespace Youth_Innovation_System.Service
                 throw new Exception($"Email {registerDto.Email} is already taken!");
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
-            var addRoleresult = await _userManager.AddToRoleAsync(user, UserRoles.User);
+            var addRoleresult = await _userManager.AddToRoleAsync(user, UserRoles.User.ToString());
             if (!result.Succeeded)
                 throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
             if (!addRoleresult.Succeeded)
