@@ -21,7 +21,7 @@ namespace Youth_Innovation_System.Extensions
 
             try
             {
-                //Add migrations
+                //Update migrations to database
                 await _dbcontext.Database.MigrateAsync();
                 await _Identitydbcontext.Database.MigrateAsync();
 

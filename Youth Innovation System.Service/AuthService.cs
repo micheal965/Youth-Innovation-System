@@ -55,15 +55,12 @@ namespace Youth_Innovation_System.Service
             //assume no lockout
             var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, loginDto.IsPersistent, false);
             if (!result.Succeeded)
-            {
                 throw new UnauthorizedAccessException("Invalid login attempt!");
-            }
             if (!user.EmailConfirmed)
-            {
                 throw new UnauthorizedAccessException("Email is not confirmed. Please verify your email first.");
-            }
+
             //track ipAddress in userloginhistory table
-            await _userService.SaveLoginAttempt(loginDto.Email);
+            await _userService.SaveLoginAttemptAsync(loginDto.Email);
             //returning Response
             var roles = await _userManager.GetRolesAsync(user);
             //Check for refreshToken

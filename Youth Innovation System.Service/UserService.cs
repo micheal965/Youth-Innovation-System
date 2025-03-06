@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Youth_Innovation_System.Core.Entities.Identity;
 using Youth_Innovation_System.Core.IServices;
+using Youth_Innovation_System.Core.Roles;
 using Youth_Innovation_System.Repository.Identity;
+using Youth_Innovation_System.Shared.ApiResponses;
+using Youth_Innovation_System.Shared.DTOs.Identity;
 
 namespace Youth_Innovation_System.Service
 {
@@ -11,23 +15,58 @@ namespace Youth_Innovation_System.Service
     {
         private readonly AppIdentityDbContext _appIdentityDbContext;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public UserService(AppIdentityDbContext appIdentityDbContext,
                             UserManager<ApplicationUser> userManager,
+                            IMapper mapper,
                             IHttpContextAccessor httpContextAccessor)
         {
             _appIdentityDbContext = appIdentityDbContext;
             _userManager = userManager;
+            _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<IReadOnlyList<UserLoginHistory>> GetLoginHistory(string userId)
+
+        public async Task<ApiResponse> DeleteUserAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return new ApiResponse(StatusCodes.Status404NotFound, "User not exists");
+
+            var roles = await _userManager.GetRolesAsync(user);
+            if (roles.Contains(UserRoles.Admin.ToString()))
+                return new ApiResponse(StatusCodes.Status403Forbidden, "Deleting an Admin user is forbidden.");
+
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+                return new ApiResponse(StatusCodes.Status400BadRequest, "Something went wrong!");
+            return new ApiResponse(StatusCodes.Status200OK, "User Deleted Successfully");
+        }
+
+        public async Task<IEnumerable<UserToReturnDto?>> GetAllUsersAsync()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            return _mapper.Map<IEnumerable<UserToReturnDto>>(users);
+        }
+
+        public async Task<IReadOnlyList<UserLoginHistory>> GetLoginHistoryAsync(string userId)
         {
             return await _appIdentityDbContext.userLoginHistories
                 .Where(l => l.ApplicationUserId == userId)
                 .OrderByDescending(l => l.LoginTime).ToListAsync();
         }
-        public async Task SaveLoginAttempt(string email)
+
+        public async Task<UserToReturnDto?> GetUserByIdAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return null;
+            return _mapper.Map<UserToReturnDto>(user);
+        }
+
+        public async Task SaveLoginAttemptAsync(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user != null)
@@ -52,5 +91,22 @@ namespace Youth_Innovation_System.Service
             }
         }
 
+        public async Task<IList<string>> GetRolesAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return new List<string>();
+
+            return await _userManager.GetRolesAsync(user);
+        }
+
+        public async Task<IdentityResult> UpdateUserAsync(string userId, UpdateUserDto userDto)
+        {
+            var user =await _userManager.FindByIdAsync(userId);
+            if (user != null)
+                _mapper.Map<UpdateUserDto, ApplicationUser>(userDto, user);
+
+            return await _userManager.UpdateAsync(user);
+        }
     }
 }

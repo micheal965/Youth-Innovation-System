@@ -1,9 +1,19 @@
-﻿using Youth_Innovation_System.Core.Entities.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using Youth_Innovation_System.Core.Entities.Identity;
+using Youth_Innovation_System.Shared.ApiResponses;
+using Youth_Innovation_System.Shared.DTOs.Identity;
 namespace Youth_Innovation_System.Core.IServices
 {
     public interface IUserService
     {
-        Task SaveLoginAttempt(string email);
-        Task<IReadOnlyList<UserLoginHistory>> GetLoginHistory(string userId);
+        Task SaveLoginAttemptAsync(string email);
+        Task<IReadOnlyList<UserLoginHistory>> GetLoginHistoryAsync(string userId);
+        Task<UserToReturnDto?> GetUserByIdAsync(string userId);
+        Task<IEnumerable<UserToReturnDto?>> GetAllUsersAsync();
+        Task<IdentityResult> UpdateUserAsync(string userId, UpdateUserDto userDto);
+        Task<ApiResponse> DeleteUserAsync(string userId);
+        Task<IList<string>> GetRolesAsync(string userId);
+        //UpdateUserPicture
+
     }
 }

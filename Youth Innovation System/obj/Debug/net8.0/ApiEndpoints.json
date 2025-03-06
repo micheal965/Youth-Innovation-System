@@ -222,6 +222,64 @@
   },
   {
     "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/User/Delete-User/{UserId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/User/Get-All-Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "Method": "GetRolesOfUser",
+    "RelativePath": "api/User/Get-User-Roles/{UserId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "api/User/Get-User/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
     "Method": "GetLoginHistory",
     "RelativePath": "api/User/login-history/{userId}",
     "HttpMethod": "GET",
@@ -237,24 +295,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
+    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User/Update-User",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Youth_Innovation_System.WeatherForecast, Youth Innovation System.APIs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "updateUserDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.UpdateUserDto",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
   }
 ]
