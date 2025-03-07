@@ -15,7 +15,7 @@ using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using Youth_Innovation_System.Core.Roles;
 
-namespace Youth_Innovation_System.Service
+namespace Youth_Innovation_System.Service.IdentityServices
 {
     public class AuthService : IAuthService
     {

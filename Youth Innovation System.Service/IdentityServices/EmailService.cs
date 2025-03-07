@@ -2,7 +2,7 @@
 using System.Net.Mail;
 using System.Net;
 using Youth_Innovation_System.Core.IServices;
-namespace Youth_Innovation_System.Service
+namespace Youth_Innovation_System.Service.IdentityServices
 {
     public class EmailService : IEmailService
     {

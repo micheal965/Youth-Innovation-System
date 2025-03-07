@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.Helpers;
 using Youth_Innovation_System.Service;
+using Youth_Innovation_System.Service.IdentityServices;
 using Youth_Innovation_System.Shared.ApiResponses;
 
 namespace Youth_Innovation_System.Extensions
@@ -23,8 +24,9 @@ namespace Youth_Innovation_System.Extensions
             Services.AddScoped<IUserVerificationService, UserVerificationService>();
             Services.AddScoped<IRoleService, RoleService>();
             Services.AddTransient<IEmailService, EmailService>();
+			Services.AddScoped<ICloudinaryServices, CloudinaryServices>();
 
-            Services.AddAutoMapper(typeof(MappingProfile));
+			Services.AddAutoMapper(typeof(MappingProfile));
 
             Services.Configure<ApiBehaviorOptions>(options =>
             {

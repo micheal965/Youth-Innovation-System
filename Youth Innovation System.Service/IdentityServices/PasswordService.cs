@@ -6,7 +6,7 @@ using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity;
 
-namespace Youth_Innovation_System.Service
+namespace Youth_Innovation_System.Service.IdentityServices
 {
     public class PasswordService : IPasswordService
     {

@@ -10,7 +10,7 @@ using Youth_Innovation_System.Core.Entities.Identity;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.Shared.ApiResponses;
 
-namespace Youth_Innovation_System.Service
+namespace Youth_Innovation_System.Service.IdentityServices
 {
     public class UserVerificationService : IUserVerificationService
     {

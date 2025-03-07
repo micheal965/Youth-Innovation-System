@@ -9,7 +9,7 @@ using Youth_Innovation_System.Repository.Identity;
 using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity;
 
-namespace Youth_Innovation_System.Service
+namespace Youth_Innovation_System.Service.IdentityServices
 {
     public class UserService : IUserService
     {
@@ -96,7 +96,7 @@ namespace Youth_Innovation_System.Service
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user != null)
-                _mapper.Map<UpdateUserDto, ApplicationUser>(userDto, user);
+                _mapper.Map(userDto, user);
 
             return await _userManager.UpdateAsync(user);
         }
