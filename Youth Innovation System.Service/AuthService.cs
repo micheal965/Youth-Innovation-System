@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.WebUtilities;
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using Youth_Innovation_System.Core.Roles;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Youth_Innovation_System.Service
 {
@@ -26,20 +25,17 @@ namespace Youth_Innovation_System.Service
         private readonly IUserService _userService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         public AuthService(IConfiguration configuration,
                            IUserService userService,
                            IHttpContextAccessor httpContextAccessor,
                            UserManager<ApplicationUser> userManager,
-                           RoleManager<IdentityRole> roleManager,
                            SignInManager<ApplicationUser> signInManager)
         {
             _configuration = configuration;
             _userService = userService;
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
-            _roleManager = roleManager;
             _signInManager = signInManager;
         }
 
@@ -260,22 +256,6 @@ namespace Youth_Innovation_System.Service
             await _userManager.UpdateAsync(user);
             return true;
         }
-        public async Task<ApiResponse> AddUserRoleAsync(string UserId, string role)
-        {
-            //Check user exist
-            var user = await _userManager.FindByIdAsync(UserId);
-            if (user == null)
-                return new ApiResponse(StatusCodes.Status404NotFound, "User not found");
-            //Check if role exists
-            if (!await _roleManager.RoleExistsAsync(role))
-                return new ApiResponse(StatusCodes.Status404NotFound, "Role not found");
 
-            var result = await _userManager.AddToRoleAsync(user, role);
-            if (!result.Succeeded)
-            {
-                return new ApiExceptionResponse(StatusCodes.Status400BadRequest, "Failed to assign role", string.Join(',', result.Errors.Select(e => e.Description)));
-            }
-            return new ApiResponse(StatusCodes.Status200OK, "Role assigned successfully");
-        }
     }
 }

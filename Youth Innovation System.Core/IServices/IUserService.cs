@@ -12,7 +12,6 @@ namespace Youth_Innovation_System.Core.IServices
         Task<IEnumerable<UserToReturnDto?>> GetAllUsersAsync();
         Task<IdentityResult> UpdateUserAsync(string userId, UpdateUserDto userDto);
         Task<ApiResponse> DeleteUserAsync(string userId);
-        Task<IList<string>> GetRolesAsync(string userId);
         //UpdateUserPicture
 
     }

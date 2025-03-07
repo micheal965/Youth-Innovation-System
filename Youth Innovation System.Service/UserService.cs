@@ -91,18 +91,10 @@ namespace Youth_Innovation_System.Service
             }
         }
 
-        public async Task<IList<string>> GetRolesAsync(string userId)
-        {
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-                return new List<string>();
-
-            return await _userManager.GetRolesAsync(user);
-        }
 
         public async Task<IdentityResult> UpdateUserAsync(string userId, UpdateUserDto userDto)
         {
-            var user =await _userManager.FindByIdAsync(userId);
+            var user = await _userManager.FindByIdAsync(userId);
             if (user != null)
                 _mapper.Map<UpdateUserDto, ApplicationUser>(userDto, user);
 

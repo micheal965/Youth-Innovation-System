@@ -48,15 +48,6 @@ namespace Youth_Innovation_System.Controllers
         }
 
 
-        [Authorize]
-        [HttpGet("Get-User-Roles/{UserId}")]
-        public async Task<IActionResult> GetRolesOfUser(string UserId)
-        {
-            var result = await _userService.GetRolesAsync(UserId);
-            if (!result.Any())
-                return NotFound(new ApiResponse(StatusCodes.Status404NotFound, "User not found or User has no roles."));
-            return Ok(new { roles = result });
-        }
         [Authorize(Roles = nameof(UserRoles.Admin))]
         [HttpGet("Get-All-Users")]
         public async Task<IActionResult> GetAllUsers()

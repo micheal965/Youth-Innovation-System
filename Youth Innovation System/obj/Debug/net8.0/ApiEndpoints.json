@@ -1,22 +1,6 @@
 [
   {
     "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
-    "Method": "AddRoleToUser",
-    "RelativePath": "api/Auth/AddRoleToUser",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "assignRoleDto",
-        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.AssignRoleDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
     "Method": "ConfirmEmail",
     "RelativePath": "api/Auth/Confirm-Email",
     "HttpMethod": "GET",
@@ -205,6 +189,59 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
+    "Method": "AddRoleToUser",
+    "RelativePath": "api/Role/AddRoleToUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignRoleDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.Roles.AssignRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
+    "Method": "GetRolesOfUser",
+    "RelativePath": "api/Role/Get-User-Roles/{UserId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
+    "Method": "UpdateRolesOfUser",
+    "RelativePath": "api/Role/Update-Role/{UserId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateUserRoleDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.Roles.UpdateUserRoleDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Youth_Innovation_System.Controllers.UserController",
     "Method": "ChangePassword",
     "RelativePath": "api/User/Change-Password",
@@ -244,22 +281,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
-    "Method": "GetRolesOfUser",
-    "RelativePath": "api/User/Get-User-Roles/{UserId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {

@@ -21,7 +21,7 @@ namespace Youth_Innovation_System.Extensions
             Services.AddScoped<IPasswordService, PasswordService>();
             Services.AddScoped<IUserService, UserService>();
             Services.AddScoped<IUserVerificationService, UserVerificationService>();
-
+            Services.AddScoped<IRoleService, RoleService>();
             Services.AddTransient<IEmailService, EmailService>();
 
             Services.AddAutoMapper(typeof(MappingProfile));
