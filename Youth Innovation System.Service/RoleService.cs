@@ -73,7 +73,33 @@ namespace Youth_Innovation_System.Service
             {
                 return new ApiExceptionResponse(StatusCodes.Status400BadRequest, "Failed to assign role", string.Join(',', result.Errors.Select(e => e.Description)));
             }
-            return new ApiResponse(StatusCodes.Status200OK, "Role assigned successfully");
+            return new ApiResponse(StatusCodes.Status200OK, $"Role {assignRoleDto.role} assigned to User {user.firstName} successfully");
+        }
+
+        public async Task<ApiResponse> DeleteUserRoleAsync(DeleteUserRoleDto deleteUserRoleDto)
+        {
+            var user = await _userManager.FindByIdAsync(deleteUserRoleDto.UserId);
+            if (user == null)
+                return new ApiResponse(StatusCodes.Status404NotFound, "User not found.");
+
+            if (!await _roleManager.RoleExistsAsync(deleteUserRoleDto.Role))
+                return new ApiResponse(StatusCodes.Status404NotFound, "Role does not exist");
+
+            if (!await _userManager.IsInRoleAsync(user, deleteUserRoleDto.Role))
+                return new ApiResponse(StatusCodes.Status400BadRequest, "User does not have this role!");
+            //Preventing deleting the last admin
+            if (deleteUserRoleDto.Role == UserRoles.Admin.ToString())
+            {
+                var existingAdmins = await _userManager.GetUsersInRoleAsync(UserRoles.Admin.ToString());
+                if (existingAdmins.Count == 1)
+                    return new ApiResponse(StatusCodes.Status400BadRequest, "Cannot remove the last Admin");
+            }
+            var result = await _userManager.RemoveFromRoleAsync(user, deleteUserRoleDto.Role);
+            if (!result.Succeeded)
+                return new ApiExceptionResponse(StatusCodes.Status400BadRequest, "Failed to remove role");
+
+            return new ApiResponse(StatusCodes.Status200OK, $"Role {deleteUserRoleDto.Role} removed from User {user.firstName} successfully");
         }
     }
 }
+

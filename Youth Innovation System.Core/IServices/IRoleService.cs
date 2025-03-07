@@ -8,5 +8,6 @@ namespace Youth_Innovation_System.Core.IServices
         Task<ApiResponse> AddUserRoleAsync(AssignRoleDto assignRoleDto);
         Task<IList<string>> GetRolesAsync(string userId);
         Task<ApiResponse> UpdateUserRolesAsync(UpdateUserRoleDto updateUserRoleDto);
+        Task<ApiResponse> DeleteUserRoleAsync(DeleteUserRoleDto deleteUserRoleDto);
     }
 }

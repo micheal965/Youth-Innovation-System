@@ -27,12 +27,11 @@ namespace Youth_Innovation_System.Controllers
             return Ok(new { roles = result });
         }
         [Authorize(Roles = nameof(UserRoles.Admin))]
-        [HttpPut("Update-Role/{UserId}")]
+        [HttpPut("Update-Role")]
         public async Task<IActionResult> UpdateRolesOfUser(UpdateUserRoleDto updateUserRoleDto)
         {
             if (string.IsNullOrWhiteSpace(updateUserRoleDto.userId) || updateUserRoleDto.Roles == null || updateUserRoleDto.Roles.Count == 0)
                 return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "User ID and roles are required."));
-
             var result = await _roleService.UpdateUserRolesAsync(updateUserRoleDto);
             return StatusCode(result.StatusCode, result);
         }
@@ -41,6 +40,13 @@ namespace Youth_Innovation_System.Controllers
         public async Task<IActionResult> AddRoleToUser(AssignRoleDto assignRoleDto)
         {
             var result = await _roleService.AddUserRoleAsync(assignRoleDto);
+            return StatusCode(result.StatusCode, result);
+        }
+        [Authorize(Roles = nameof(UserRoles.Admin))]
+        [HttpDelete("Delete-User-Role")]
+        public async Task<IActionResult> DeleteRoleFromUser(DeleteUserRoleDto deleteUserRoleDto)
+        {
+            var result = await _roleService.DeleteUserRoleAsync(deleteUserRoleDto);
             return StatusCode(result.StatusCode, result);
         }
     }

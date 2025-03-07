@@ -191,7 +191,7 @@
   {
     "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
     "Method": "AddRoleToUser",
-    "RelativePath": "api/Role/AddRoleToUser",
+    "RelativePath": "api/Role/Add-User-Role",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -199,6 +199,22 @@
       {
         "Name": "assignRoleDto",
         "Type": "Youth_Innovation_System.Shared.DTOs.Identity.Roles.AssignRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
+    "Method": "DeleteRoleFromUser",
+    "RelativePath": "api/Role/Delete-User-Role",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deleteUserRoleDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Identity.Roles.DeleteUserRoleDto",
         "IsRequired": true
       }
     ],
@@ -223,7 +239,7 @@
   {
     "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
     "Method": "UpdateRolesOfUser",
-    "RelativePath": "api/Role/Update-Role/{UserId}",
+    "RelativePath": "api/Role/Update-Role",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -231,11 +247,6 @@
       {
         "Name": "updateUserRoleDto",
         "Type": "Youth_Innovation_System.Shared.DTOs.Identity.Roles.UpdateUserRoleDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "UserId",
-        "Type": "",
         "IsRequired": true
       }
     ],
