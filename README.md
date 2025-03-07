@@ -5,7 +5,7 @@ The **Youth Innovation System** is a platform designed to bridge the gap between
 
 ## Features
 - **User Authentication & Authorization**: Secure authentication using JWT and role-based authorization for Admins, Users, and Investors.
-- **Multi-Role Support**: Different functionalities tailored for Users, Investors, and Admins.
+- **Multi-Role Support**: Different functionalities tailored for User and Admins.
 - **Real-Time Messaging**: Integrated SignalR for instant communication.
 - **Interactive Features**: Users can like and comment on posts to enhance engagement.
 - **Optimized Database Schema**: Designed a relational database in SQL Server for efficient data storage and retrieval.
@@ -27,14 +27,7 @@ The **Youth Innovation System** is a platform designed to bridge the gap between
    git clone https://github.com/your-username/youth-innovation-system.git
    cd youth-innovation-system
    ```
-2. **Set up the database**
-   - Ensure you have SQL Server installed and running.
-   - Update `appsettings.json` with your database connection string.
-   - Run migrations:
-     ```sh
-     dotnet ef database update
-     ```
-3. **Run the application**
+2. **Run the application**
    ```sh
    dotnet run
    ```
