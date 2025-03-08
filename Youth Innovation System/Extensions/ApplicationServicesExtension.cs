@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CloudinaryDotNet;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Youth_Innovation_System.Core.IServices;
@@ -24,9 +25,12 @@ namespace Youth_Innovation_System.Extensions
             Services.AddScoped<IUserVerificationService, UserVerificationService>();
             Services.AddScoped<IRoleService, RoleService>();
             Services.AddTransient<IEmailService, EmailService>();
-			Services.AddScoped<ICloudinaryServices, CloudinaryServices>();
 
-			Services.AddAutoMapper(typeof(MappingProfile));
+
+            Services.AddScoped<ICloudinaryServices, CloudinaryServices>(); // Register the Cloudinary Service
+
+
+            Services.AddAutoMapper(typeof(MappingProfile));
 
             Services.Configure<ApiBehaviorOptions>(options =>
             {

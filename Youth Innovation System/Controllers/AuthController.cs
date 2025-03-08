@@ -24,7 +24,7 @@ namespace Youth_Innovation_System.API.Controllers
 
         // Register a new user
         [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
+        public async Task<IActionResult> Register([FromForm] RegisterDto registerDto)
         {
             var result = await _authService.RegisterAsync(registerDto);
 

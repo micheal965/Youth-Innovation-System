@@ -1,74 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\",
+  "WorkspaceRootPath": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}|Youth Innovation System.Core\\Youth Innovation System.Core.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.core\\iservices\\icloudinaryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}|Youth Innovation System.Core\\Youth Innovation System.Core.csproj|solutionrelative:youth innovation system.core\\iservices\\icloudinaryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.service\\cloudinaryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|solutionrelative:youth innovation system.service\\cloudinaryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.service\\identityservices\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|solutionrelative:youth innovation system.service\\identityservices\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C300ECC-85EB-40CF-A2A7-0C9545D4F245}|Youth Innovation System.Repository\\Youth Innovation System.Repository.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.repository\\specificationevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C300ECC-85EB-40CF-A2A7-0C9545D4F245}|Youth Innovation System.Repository\\Youth Innovation System.Repository.csproj|solutionrelative:youth innovation system.repository\\specificationevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}|Youth Innovation System.Core\\Youth Innovation System.Core.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.core\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}|Youth Innovation System.Core\\Youth Innovation System.Core.csproj|solutionrelative:youth innovation system.core\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C300ECC-85EB-40CF-A2A7-0C9545D4F245}|Youth Innovation System.Repository\\Youth Innovation System.Repository.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.repository\\identity\\usersseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C300ECC-85EB-40CF-A2A7-0C9545D4F245}|Youth Innovation System.Repository\\Youth Innovation System.Repository.csproj|solutionrelative:youth innovation system.repository\\identity\\usersseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{279F477D-5DD3-433C-85F1-FA79F48973A8}|Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.shared\\dtos\\identity\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{279F477D-5DD3-433C-85F1-FA79F48973A8}|Youth Innovation System.Shared\\Youth Innovation System.Shared.csproj|solutionrelative:youth innovation system.shared\\dtos\\identity\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.service\\identityservices\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|solutionrelative:youth innovation system.service\\identityservices\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.service\\identityservices\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|solutionrelative:youth innovation system.service\\identityservices\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}|Youth Innovation System.Core\\Youth Innovation System.Core.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.core\\roles\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}|Youth Innovation System.Core\\Youth Innovation System.Core.csproj|solutionrelative:youth innovation system.core\\roles\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.service\\identityservices\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BCAAFB0-C019-4214-B7A2-5C680133ACD4}|Youth Innovation System.Service\\Youth Innovation System.Service.csproj|solutionrelative:youth innovation system.service\\identityservices\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\micheal\\source\\repos\\youth-innovation-system\\youth innovation system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system\\extensions\\identityservicesextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{593FD4AF-CFF0-483A-B900-A7631F9660A1}|Youth Innovation System\\Youth Innovation System.APIs.csproj|solutionrelative:youth innovation system\\extensions\\identityservicesextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}|Youth Innovation System.Core\\Youth Innovation System.Core.csproj|c:\\users\\antoinette emad\\desktop\\youth-innovation-system\\youth innovation system.core\\entities\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ADA6B6C-CB30-4DD4-A88A-83559794CFCB}|Youth Innovation System.Core\\Youth Innovation System.Core.csproj|solutionrelative:youth innovation system.core\\entities\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -77,16 +13,16 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 14,
-          "SelectedChildIndex": 7,
+          "DockedWidth": 13,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Bookmark",
@@ -94,231 +30,19 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CloudinaryServices.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\CloudinaryServices.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Service\\CloudinaryServices.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\CloudinaryServices.cs",
-              "RelativeToolTip": "Youth Innovation System.Service\\CloudinaryServices.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAYwC0AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T20:40:50.016Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\IdentityServices\\AuthService.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Service\\IdentityServices\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\IdentityServices\\AuthService.cs",
-              "RelativeToolTip": "Youth Innovation System.Service\\IdentityServices\\AuthService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T20:36:24.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ICloudinaryServices.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\IServices\\ICloudinaryServices.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Core\\IServices\\ICloudinaryServices.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\IServices\\ICloudinaryServices.cs",
-              "RelativeToolTip": "Youth Innovation System.Core\\IServices\\ICloudinaryServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T20:27:47.524Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SpecificationEvaluator.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Repository\\SpecificationEvaluator.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Repository\\SpecificationEvaluator.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Repository\\SpecificationEvaluator.cs",
-              "RelativeToolTip": "Youth Innovation System.Repository\\SpecificationEvaluator.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T20:25:36.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Post.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Entities\\Post.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Core\\Entities\\Post.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Entities\\Post.cs",
-              "RelativeToolTip": "Youth Innovation System.Core\\Entities\\Post.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T19:16:20.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\Program.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System\\Program.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\Program.cs",
-              "RelativeToolTip": "Youth Innovation System\\Program.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T19:04:17.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\appsettings.json",
-              "RelativeDocumentMoniker": "Youth Innovation System\\appsettings.json",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\appsettings.json",
-              "RelativeToolTip": "Youth Innovation System\\appsettings.json",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-07T18:25:08.283Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UsersSeeding.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Repository\\Identity\\UsersSeeding.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Repository\\Identity\\UsersSeeding.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Repository\\Identity\\UsersSeeding.cs",
-              "RelativeToolTip": "Youth Innovation System.Repository\\Identity\\UsersSeeding.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T18:22:01.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "RoleService.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\IdentityServices\\RoleService.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Service\\IdentityServices\\RoleService.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\IdentityServices\\RoleService.cs*",
-              "RelativeToolTip": "Youth Innovation System.Service\\IdentityServices\\RoleService.cs*",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAIwGYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T18:19:57.228Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Roles.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Roles\\Roles.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Core\\Roles\\Roles.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Roles\\Roles.cs",
-              "RelativeToolTip": "Youth Innovation System.Core\\Roles\\Roles.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T18:19:45.672Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\IdentityServices\\UserService.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Service\\IdentityServices\\UserService.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\IdentityServices\\UserService.cs*",
-              "RelativeToolTip": "Youth Innovation System.Service\\IdentityServices\\UserService.cs*",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAmwGQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T18:17:12.814Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\IdentityServices\\EmailService.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Service\\IdentityServices\\EmailService.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Service\\IdentityServices\\EmailService.cs*",
-              "RelativeToolTip": "Youth Innovation System.Service\\IdentityServices\\EmailService.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T12:44:35.645Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "RoleController.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\Controllers\\RoleController.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System\\Controllers\\RoleController.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\Controllers\\RoleController.cs",
-              "RelativeToolTip": "Youth Innovation System\\Controllers\\RoleController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T00:32:53.566Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UpdateUserDto.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Shared\\DTOs\\Identity\\UpdateUserDto.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Shared\\DTOs\\Identity\\UpdateUserDto.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Shared\\DTOs\\Identity\\UpdateUserDto.cs",
-              "RelativeToolTip": "Youth Innovation System.Shared\\DTOs\\Identity\\UpdateUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:23:38.401Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IdentityServicesExtension.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\Extensions\\IdentityServicesExtension.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System\\Extensions\\IdentityServicesExtension.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\Extensions\\IdentityServicesExtension.cs",
-              "RelativeToolTip": "Youth Innovation System\\Extensions\\IdentityServicesExtension.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:29:36.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Entities\\Identity\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "Youth Innovation System.Core\\Entities\\Identity\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System.Core\\Entities\\Identity\\ApplicationUser.cs",
-              "RelativeToolTip": "Youth Innovation System.Core\\Entities\\Identity\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:23:13.97Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\Controllers\\UserController.cs",
+              "DocumentMoniker": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Youth Innovation System\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Antoinette Emad\\Desktop\\Youth-Innovation-System\\Youth Innovation System\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\MICHEAL\\source\\repos\\Youth-Innovation-System\\Youth Innovation System\\Controllers\\UserController.cs",
               "RelativeToolTip": "Youth Innovation System\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA9wDEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAswFIAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T22:06:37.454Z",
+              "WhenOpened": "2025-03-08T02:51:08.086Z",
               "EditorCaption": ""
             }
           ]

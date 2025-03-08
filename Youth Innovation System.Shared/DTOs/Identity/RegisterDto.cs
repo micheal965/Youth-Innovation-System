@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace Youth_Innovation_System.Shared.DTOs.Identity
 {
@@ -28,7 +29,7 @@ namespace Youth_Innovation_System.Shared.DTOs.Identity
         [Required(ErrorMessage = "PhoneNumber is required")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }  // User's phone number
-        public string ProfilePictureUrl { get; set; }  // Profile picture URL
+        public IFormFile ProfilePicture { get; set; }  // Profile picture
         public int role { get; set; }
     }
 }

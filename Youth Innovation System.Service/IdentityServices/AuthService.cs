@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using Youth_Innovation_System.Core.Roles;
+using CloudinaryDotNet.Actions;
 
 namespace Youth_Innovation_System.Service.IdentityServices
 {
@@ -24,17 +25,20 @@ namespace Youth_Innovation_System.Service.IdentityServices
         private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ICloudinaryServices _cloudinaryServices;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         public AuthService(IConfiguration configuration,
                            IUserService userService,
                            IHttpContextAccessor httpContextAccessor,
+                           ICloudinaryServices cloudinaryServices,
                            UserManager<ApplicationUser> userManager,
                            SignInManager<ApplicationUser> signInManager)
         {
             _configuration = configuration;
             _userService = userService;
             _httpContextAccessor = httpContextAccessor;
+            _cloudinaryServices = cloudinaryServices;
             _userManager = userManager;
             _signInManager = signInManager;
         }
@@ -91,6 +95,21 @@ namespace Youth_Innovation_System.Service.IdentityServices
         }
         public async Task<IdentityResult> RegisterAsync(RegisterDto registerDto)
         {
+
+            ImageUploadResult imageUploadResult = null;
+            if (registerDto.ProfilePicture != null)
+            {
+                try
+                {
+                    imageUploadResult = await _cloudinaryServices.UploadImageAsync(registerDto.ProfilePicture);
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Image upload failed: {ex.Message}");
+                }
+            }
+
             var user = new ApplicationUser()
             {
                 UserName = registerDto.Email.Split("@")[0],
@@ -98,7 +117,7 @@ namespace Youth_Innovation_System.Service.IdentityServices
                 firstName = registerDto.FirstName,
                 lastName = registerDto.LastName,
                 PhoneNumber = registerDto.PhoneNumber,
-                pictureUrl = registerDto.ProfilePictureUrl,
+                pictureUrl = imageUploadResult?.SecureUri.ToString(),
             };
             //ensuring email doesn't exist before
             if (await _userManager.FindByEmailAsync(registerDto.Email) != null)

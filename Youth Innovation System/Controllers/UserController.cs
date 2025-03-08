@@ -78,5 +78,41 @@ namespace Youth_Innovation_System.Controllers
                 return BadRequest(new ApiExceptionResponse(StatusCodes.Status400BadRequest, "Failed to update user", string.Join(",", result.Errors.Select(e => e.Description))));
             return Ok(new ApiResponse(StatusCodes.Status200OK, "User informations updated successfully"));
         }
+        [Authorize]
+        [HttpPost("AddOrUpdate-Profile-Picture")]
+        public async Task<IActionResult> AddOrUpdateProfilePicture(IFormFile profilePicture)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            try
+            {
+                var result = await _userService.AddOrUpdateProfilePictureAsync(userId, profilePicture);
+                if (!result.Succeeded)
+                    return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "Could not modify profile picture"));
+
+                return Ok(new ApiResponse(StatusCodes.Status200OK, "Profile picture modified successfully"));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, ex.Message));
+            }
+        }
+        [Authorize]
+        [HttpDelete("Delete-Profile-Picture")]
+        public async Task<IActionResult> DeleteProfilePicture()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            try
+            {
+                var result = await _userService.DeleteProfilePictureAsync(userId);
+                if (!result)
+                    return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "Could not delete profile picture"));
+
+                return Ok(new ApiResponse(StatusCodes.Status200OK, "Profile picture deleted successfully"));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, ex.Message));
+            }
+        }
     }
 }

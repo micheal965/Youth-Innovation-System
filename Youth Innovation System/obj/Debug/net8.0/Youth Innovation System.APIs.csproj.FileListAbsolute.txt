@@ -502,3 +502,5 @@ C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System
 C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System\bin\Debug\net8.0\CloudinaryDotNet.dll
 C:\Users\Antoinette Emad\Desktop\Youth-Innovation-System\Youth Innovation System\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\MICHEAL\source\repos\Youth-Innovation-System\Youth Innovation System\bin\Debug\net8.0\CloudinaryDotNet.dll
+C:\Users\MICHEAL\source\repos\Youth-Innovation-System\Youth Innovation System\bin\Debug\net8.0\Newtonsoft.Json.dll

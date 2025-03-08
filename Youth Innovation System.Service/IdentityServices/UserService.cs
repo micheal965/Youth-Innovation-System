@@ -16,16 +16,19 @@ namespace Youth_Innovation_System.Service.IdentityServices
         private readonly AppIdentityDbContext _appIdentityDbContext;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
+        private readonly ICloudinaryServices _cloudinaryServices;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public UserService(AppIdentityDbContext appIdentityDbContext,
                             UserManager<ApplicationUser> userManager,
                             IMapper mapper,
+                            ICloudinaryServices cloudinaryServices,
                             IHttpContextAccessor httpContextAccessor)
         {
             _appIdentityDbContext = appIdentityDbContext;
             _userManager = userManager;
             _mapper = mapper;
+            _cloudinaryServices = cloudinaryServices;
             _httpContextAccessor = httpContextAccessor;
         }
 
@@ -91,6 +94,38 @@ namespace Youth_Innovation_System.Service.IdentityServices
             }
         }
 
+        public async Task<IdentityResult> AddOrUpdateProfilePictureAsync(string userId, IFormFile profilePicture)
+        {
+            var User = await _userManager.FindByIdAsync(userId);
+            if (User == null) throw new Exception("User not found.");
+
+            //Delete old profile picture if it exists
+            if (!string.IsNullOrEmpty(User.pictureUrl))
+            {
+                await _cloudinaryServices.DeleteFileAsync(User.pictureUrl);
+            }
+            var imageUploadResult = await _cloudinaryServices.UploadImageAsync(profilePicture);
+
+            User.pictureUrl = imageUploadResult.SecureUri.ToString();
+            return await _userManager.UpdateAsync(User);
+        }
+        public async Task<bool> DeleteProfilePictureAsync(string userId)
+        {
+            var User = await _userManager.FindByIdAsync(userId);
+            if (User == null) throw new Exception("User not found.");
+
+            //Delete old profile picture if it exists
+            bool DeleteImageResult = false;
+            if (!string.IsNullOrEmpty(User.pictureUrl))
+                DeleteImageResult = await _cloudinaryServices.DeleteFileAsync(User.pictureUrl);
+            if (DeleteImageResult)
+            {
+                User.pictureUrl = null;
+                await _userManager.UpdateAsync(User);
+            }
+
+            return DeleteImageResult;
+        }
 
         public async Task<IdentityResult> UpdateUserAsync(string userId, UpdateUserDto userDto)
         {
