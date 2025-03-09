@@ -53,6 +53,25 @@ namespace Youth_Innovation_System.Service
                 throw new Exception("There is no Image");
             }
         }
+        public async Task<bool> DeleteImagesAsync(List<string> imagesUrls)
+        {
+            List<string> publicIds = new List<string>();
+            foreach (var imagesUrl in imagesUrls)
+            {
+                publicIds.Add(GetPublicIdfromUrl(imagesUrl));
+            }
+
+            if (publicIds == null || publicIds.Count == 0) return false;
+
+            var deletionParams = new DelResParams
+            {
+                PublicIds = publicIds,
+                Invalidate = true
+            };
+
+            var result = await _cloudinary.DeleteResourcesAsync(deletionParams);
+            return result.Deleted.Count == imagesUrls.Count; // Check if all images were deleted
+        }
         //public async Task<string> GetFileAsync(string url)
         //{
         //    try
@@ -148,7 +167,6 @@ namespace Youth_Innovation_System.Service
                 var uploadParams = new ImageUploadParams()
                 {
                     File = new FileDescription(file.FileName, stream),
-                    PublicId = $"posts/{Guid.NewGuid()}",
                     Transformation = new Transformation().Width(800).Height(500).Crop("fill")
                 };
 

@@ -12,7 +12,7 @@ namespace Youth_Innovation_System.Core.IServices
     public interface IPostService
     {
         Task<PostResponseDto> CreatePostAsync(string userId, CreatePostDto createPostDto);
-        Task<bool> DeletePostAsync(int postId);
+        Task<bool> DeletePostAsync(int postId, string userId);
         Task<List<Post>> GetAllPostsAsync(int pageNumber, int pageSize);
 
     }

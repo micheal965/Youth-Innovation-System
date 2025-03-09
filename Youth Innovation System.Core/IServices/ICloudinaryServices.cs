@@ -10,6 +10,8 @@ namespace Youth_Innovation_System.Core.IServices
         Task<string> GetImageAsync(string ImageUrl);
         Task<List<(string imageUrl, string publicId)>> UploadImagesAsync(List<IFormFile> files);
         Task<List<RawUploadResult>> UploadFilesAsync(List<IFormFile> files);
+        Task<bool> DeleteImagesAsync(List<string> imagesUrls);
+
 
     }
 }

@@ -250,6 +250,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "Method": "DeletePost",
+    "RelativePath": "api/Post/Delete-Post/{postId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
     "Method": "AddRoleToUser",
     "RelativePath": "api/Role/Add-User-Role",

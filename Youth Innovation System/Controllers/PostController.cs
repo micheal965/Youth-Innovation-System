@@ -38,5 +38,17 @@ namespace Youth_Innovation_System.Controllers
                 return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, ex.Message));
             }
         }
+        [Authorize]
+        [HttpDelete("Delete-Post/{postId}")]
+        public async Task<IActionResult> DeletePost(int postId)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var result = await _postService.DeletePostAsync(postId, userId);
+            if (!result)
+                return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "Can't delete post"));
+
+            return Ok(new ApiResponse(StatusCodes.Status200OK, "Post deleted successfully"));
+        }
     }
 }

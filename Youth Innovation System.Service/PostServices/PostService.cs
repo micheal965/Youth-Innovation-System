@@ -4,6 +4,8 @@ using Youth_Innovation_System.Core.Entities;
 using Youth_Innovation_System.Core.Entities.Identity;
 using Youth_Innovation_System.Core.IRepositories;
 using Youth_Innovation_System.Core.IServices;
+using Youth_Innovation_System.Core.Specifications;
+using Youth_Innovation_System.Core.Specifications.PostSpecifications;
 using Youth_Innovation_System.Shared.DTOs.Post;
 using Youth_Innovation_System.Shared.Exceptions;
 
@@ -71,9 +73,25 @@ namespace Youth_Innovation_System.Service.PostServices
             }
         }
 
-        public Task<bool> DeletePostAsync(int postId)
+        public async Task<bool> DeletePostAsync(int postId, string userId)
         {
-            throw new NotImplementedException();
+            var postRepo = _unitOfWork.Repository<Post>();
+            DeletePostSpecification spec = new DeletePostSpecification(postId, userId);
+            var post = await postRepo.GetWithSpecAsync(spec);
+            if (post == null) return false;
+
+
+            bool DeletePhotosResult = false;
+            if (post.postImages.Count > 0)
+            {
+                DeletePhotosResult = await _cloudinaryServices.DeleteImagesAsync(post.postImages.Select(pi => pi.imageUrl).ToList());
+            }
+            if (DeletePhotosResult)
+            {
+                postRepo.Delete(post);
+                if (await _unitOfWork.CompleteAsync() > 0) return true;
+            }
+            return false;
         }
 
         public Task<List<Post>> GetAllPostsAsync(int pageNumber, int pageSize)
