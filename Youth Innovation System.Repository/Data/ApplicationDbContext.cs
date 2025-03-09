@@ -12,6 +12,7 @@ namespace Youth_Innovation_System.Repository.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<CommentReply> CommentReplies { get; set; }
         public DbSet<CommentReaction> CommentReactions { get; set; }
+        public DbSet<PostImage> PostImages { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

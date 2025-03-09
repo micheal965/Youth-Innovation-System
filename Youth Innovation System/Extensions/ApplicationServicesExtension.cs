@@ -2,10 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Youth_Innovation_System.Core.IRepositories;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.Helpers;
+using Youth_Innovation_System.Repository.Data;
 using Youth_Innovation_System.Service;
 using Youth_Innovation_System.Service.IdentityServices;
+using Youth_Innovation_System.Service.PostServices;
 using Youth_Innovation_System.Shared.ApiResponses;
 
 namespace Youth_Innovation_System.Extensions
@@ -18,15 +21,16 @@ namespace Youth_Innovation_System.Extensions
             Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             Services.AddSingleton<IUrlHelperFactory, UrlHelperFactory>();
 
+            Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             Services.AddScoped<IAuthService, AuthService>();
             Services.AddScoped<IEmailService, EmailService>();
             Services.AddScoped<IPasswordService, PasswordService>();
             Services.AddScoped<IUserService, UserService>();
             Services.AddScoped<IUserVerificationService, UserVerificationService>();
             Services.AddScoped<IRoleService, RoleService>();
+            Services.AddScoped<IPostService, PostService>();
             Services.AddTransient<IEmailService, EmailService>();
-
-
             Services.AddScoped<ICloudinaryServices, CloudinaryServices>(); // Register the Cloudinary Service
 
 

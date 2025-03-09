@@ -114,5 +114,17 @@ namespace Youth_Innovation_System.Controllers
                 return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, ex.Message));
             }
         }
+        [HttpGet("Get-Profile-Picture/{userId}")]
+        public async Task<IActionResult> GetProfilePicture(string userId)
+        {
+            try
+            {
+                return Ok(new { statusCode = StatusCodes.Status200OK, imageUrl = await _userService.GetProfilePictureAsync(userId) });
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new ApiResponse(StatusCodes.Status404NotFound, ex.Message));
+            }
+        }
     }
 }

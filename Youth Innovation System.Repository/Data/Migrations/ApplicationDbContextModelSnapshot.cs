@@ -48,7 +48,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("postId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.CommentReaction", b =>
@@ -75,7 +75,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("commentId");
 
-                    b.ToTable("CommentReactions");
+                    b.ToTable("CommentReactions", (string)null);
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.CommentReply", b =>
@@ -101,7 +101,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("commentId");
 
-                    b.ToTable("CommentReplies");
+                    b.ToTable("CommentReplies", (string)null);
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Post", b =>
@@ -132,7 +132,33 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("imagePublicId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("imageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("PostImages", (string)null);
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.React", b =>
@@ -159,7 +185,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("postId");
 
-                    b.ToTable("Reacts");
+                    b.ToTable("Reacts", (string)null);
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.UserRating", b =>
@@ -190,7 +216,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserRatings");
+                    b.ToTable("UserRatings", (string)null);
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Comment", b =>
@@ -226,6 +252,17 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
                     b.Navigation("comment");
                 });
 
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostImage", b =>
+                {
+                    b.HasOne("Youth_Innovation_System.Core.Entities.Post", "post")
+                        .WithMany("postImages")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("post");
+                });
+
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.React", b =>
                 {
                     b.HasOne("Youth_Innovation_System.Core.Entities.Post", "post")
@@ -249,6 +286,8 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Reacts");
+
+                    b.Navigation("postImages");
                 });
 #pragma warning restore 612, 618
         }

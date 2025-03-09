@@ -17,6 +17,12 @@ namespace Youth_Innovation_System.Repository.Data.Config
                 .WithOne(r => r.post)
                 .HasForeignKey(r => r.postId)
                 .OnDelete(DeleteBehavior.Cascade);//Delete comments if post is deleted
+
+            builder.HasMany(p => p.postImages)
+                .WithOne(pi => pi.post)
+                .HasForeignKey(pi => pi.PostId)
+                .OnDelete(DeleteBehavior.Cascade);//Delete postimages if post deleted
+
         }
     }
 }

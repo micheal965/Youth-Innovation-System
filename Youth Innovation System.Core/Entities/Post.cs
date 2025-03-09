@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Youth_Innovation_System.Core.Entities
+﻿namespace Youth_Innovation_System.Core.Entities
 {
     public class Post : BaseEntity
     {
@@ -18,5 +12,6 @@ namespace Youth_Innovation_System.Core.Entities
         //Navigation properties
         public List<React> Reacts { get; set; } = new();
         public List<Comment> Comments { get; set; } = new();
+        public List<PostImage> postImages { get; set; } = new();
     }
 }

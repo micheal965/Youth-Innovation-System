@@ -15,5 +15,7 @@ namespace Youth_Innovation_System.Core.IServices
         Task<ApiResponse> DeleteUserAsync(string userId);
         Task<IdentityResult> AddOrUpdateProfilePictureAsync(string userId, IFormFile profilePicture);
         Task<bool> DeleteProfilePictureAsync(string userId);
+        Task<string> GetProfilePictureAsync(string userId);
+
     }
 }

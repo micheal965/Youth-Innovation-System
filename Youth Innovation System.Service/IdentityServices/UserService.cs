@@ -102,7 +102,7 @@ namespace Youth_Innovation_System.Service.IdentityServices
             //Delete old profile picture if it exists
             if (!string.IsNullOrEmpty(User.pictureUrl))
             {
-                await _cloudinaryServices.DeleteFileAsync(User.pictureUrl);
+                await _cloudinaryServices.DeleteImageAsync(User.pictureUrl);
             }
             var imageUploadResult = await _cloudinaryServices.UploadImageAsync(profilePicture);
 
@@ -117,7 +117,7 @@ namespace Youth_Innovation_System.Service.IdentityServices
             //Delete old profile picture if it exists
             bool DeleteImageResult = false;
             if (!string.IsNullOrEmpty(User.pictureUrl))
-                DeleteImageResult = await _cloudinaryServices.DeleteFileAsync(User.pictureUrl);
+                DeleteImageResult = await _cloudinaryServices.DeleteImageAsync(User.pictureUrl);
             if (DeleteImageResult)
             {
                 User.pictureUrl = null;
@@ -135,5 +135,15 @@ namespace Youth_Innovation_System.Service.IdentityServices
 
             return await _userManager.UpdateAsync(user);
         }
+
+        public async Task<string> GetProfilePictureAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new Exception("User not Found");
+
+            var result = await _cloudinaryServices.GetImageAsync(user.pictureUrl);
+            return result;
+        }
+
     }
 }

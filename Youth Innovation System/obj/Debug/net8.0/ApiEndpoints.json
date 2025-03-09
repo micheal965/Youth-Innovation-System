@@ -224,6 +224,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "Method": "CreatePost",
+    "RelativePath": "api/Post/Create-Post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Content",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
     "Method": "AddRoleToUser",
     "RelativePath": "api/Role/Add-User-Role",
@@ -353,6 +379,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "Method": "GetProfilePicture",
+    "RelativePath": "api/User/Get-Profile-Picture/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -16,6 +16,8 @@ namespace Youth_Innovation_System.Repository
         }
         public async Task AddAsync(T entity)
         => await _dbContext.Set<T>().AddAsync(entity);
+        public async Task AddRangeAsync(IEnumerable<T> entities)
+        => await _dbContext.Set<T>().AddRangeAsync(entities);
         public void Delete(T entity)
         => _dbContext.Set<T>().Remove(entity);
         public async Task<IReadOnlyList<T>> GetAllAsync()
@@ -30,6 +32,7 @@ namespace Youth_Innovation_System.Repository
 
         public void Update(T entity)
             => _dbContext.Set<T>().Update(entity);
+
 
         private IQueryable<T> GetQuery(ISpecification<T> spec)
           => SpecificationEvaluator<T>.BuildQuery(_dbContext.Set<T>(), spec);
