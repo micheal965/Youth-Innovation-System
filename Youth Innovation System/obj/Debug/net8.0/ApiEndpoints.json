@@ -266,6 +266,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "Method": "GetAllPosts",
+    "RelativePath": "api/Post/Get-All-Posts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "getAllPostsDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Post.GetAllPostsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "Method": "GetPost",
+    "RelativePath": "api/Post/Get-Post/{postId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "Method": "GetUserPosts",
+    "RelativePath": "api/Post/Get-User-Posts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "getUserPostsDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Post.GetUserPostsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "Method": "UpdatePost",
+    "RelativePath": "api/Post/Update-Post",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Content",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
     "Method": "AddRoleToUser",
     "RelativePath": "api/Role/Add-User-Role",

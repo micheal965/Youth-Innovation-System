@@ -72,7 +72,7 @@ namespace Youth_Innovation_System.Service.IdentityServices
             }
             else
             {
-                //if there is no activerefreshtoken for that user so generate new one
+                //if there is no activeRefreshtoken for that user so generate new one
                 RefreshTokenObj = GenerateRefreshTokenObject();
                 user.refreshTokens.Add(RefreshTokenObj);
                 await _userManager.UpdateAsync(user);

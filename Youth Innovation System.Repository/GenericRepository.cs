@@ -25,6 +25,8 @@ namespace Youth_Innovation_System.Repository
 
         public async Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecification<T> spec)
         => await GetQuery(spec).ToListAsync();
+        public async Task<int> CountAsyncWithSpec(ISpecification<T> spec)
+        => await GetQuery(spec).CountAsync();
         public async Task<T?> GetAsync(int id)
         => await _dbContext.Set<T>().FindAsync(id);
         public Task<T?> GetWithSpecAsync(ISpecification<T> spec)

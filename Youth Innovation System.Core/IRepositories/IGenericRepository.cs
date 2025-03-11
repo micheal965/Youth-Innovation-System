@@ -9,6 +9,7 @@ namespace Youth_Innovation_System.Core
         Task<IReadOnlyList<T>> GetAllAsync();
         Task<T?> GetWithSpecAsync(ISpecification<T> spec);
         Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecification<T> spec);
+        Task<int> CountAsyncWithSpec(ISpecification<T> spec);
         Task AddAsync(T entity);
         Task AddRangeAsync(IEnumerable<T> entities);
         void Update(T entity);

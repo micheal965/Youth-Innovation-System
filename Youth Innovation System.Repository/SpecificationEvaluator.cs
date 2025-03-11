@@ -11,16 +11,15 @@ namespace Youth_Innovation_System.Repository
             var outputQuery = inputQuery;
 
             if (spec.Criteria != null)
-            {
                 outputQuery = outputQuery.Where(spec.Criteria);
-            }
 
             if (spec.OrderByAsc != null)
                 outputQuery = outputQuery.OrderBy(spec.OrderByAsc);
             else if (spec.OrderByDesc != null)
                 outputQuery = outputQuery.OrderByDescending(spec.OrderByDesc);
 
-
+            if (spec.IsPagingEnabled)
+                outputQuery = outputQuery.Skip(spec.Skip.Value).Take(spec.Take.Value);
 
             // inputquery.Where(p => p.Id == 1).OrderByDescending(p => p.Id).Include(p => p.Id);
             if (spec.Includes.Count() > 0)

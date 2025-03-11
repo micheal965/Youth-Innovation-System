@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Youth_Innovation_System.Core.Entities;
-using Youth_Innovation_System.Shared.DTOs.Post;
+﻿using Youth_Innovation_System.Shared.DTOs.Post;
+using Youth_Innovation_System.Shared.Pagination;
 
 namespace Youth_Innovation_System.Core.IServices
 {
@@ -13,7 +7,9 @@ namespace Youth_Innovation_System.Core.IServices
     {
         Task<PostResponseDto> CreatePostAsync(string userId, CreatePostDto createPostDto);
         Task<bool> DeletePostAsync(int postId, string userId);
-        Task<List<Post>> GetAllPostsAsync(int pageNumber, int pageSize);
-
+        Task UpdatePostAsync(string userId, UpdatePostDto updatePostDto);
+        Task<PagedResult<PostResponseDto>> GetAllPostsAsync(int pageNumber, int pageSize);
+        Task<PagedResult<PostResponseDto>> GetAllUserPostsAsync(string userId, int pageNumber, int pageSize);
+        Task<PostResponseDto> GetPostAsync(int postId);
     }
 }

@@ -13,5 +13,8 @@ namespace Youth_Innovation_System.Core.Specifications
         //Orderby
         Expression<Func<T, object>> OrderByAsc { get; set; }
         Expression<Func<T, object>> OrderByDesc { get; set; }
+        int? Take { get; set; }
+        int? Skip { get; set; }
+        bool IsPagingEnabled { get; set; }
     }
 }

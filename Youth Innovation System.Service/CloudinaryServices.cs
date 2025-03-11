@@ -2,7 +2,6 @@
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using System.Text.RegularExpressions;
 using Youth_Innovation_System.Core.IServices;
 
 namespace Youth_Innovation_System.Service
@@ -61,7 +60,7 @@ namespace Youth_Innovation_System.Service
                 publicIds.Add(GetPublicIdfromUrl(imagesUrl));
             }
 
-            if (publicIds == null || publicIds.Count == 0) return false;
+            if (publicIds == null || publicIds.Count == 0) return true;
 
             var deletionParams = new DelResParams
             {
@@ -72,22 +71,6 @@ namespace Youth_Innovation_System.Service
             var result = await _cloudinary.DeleteResourcesAsync(deletionParams);
             return result.Deleted.Count == imagesUrls.Count; // Check if all images were deleted
         }
-        //public async Task<string> GetFileAsync(string url)
-        //{
-        //    try
-        //    {
-        //        var publicId = getb(url);
-
-        //        // ✅ Use `.Url` instead of `.UrlImgUp` for all files
-        //        var uri = _cloudinary.Api.Url.BuildUrl(publicId);
-
-        //        return uri.ToString();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw new Exception("File not found or invalid URL.");
-        //    }
-        //}
         public async Task<ImageUploadResult> UploadImageAsync(IFormFile file)
         {
             if (file == null || file.Length == 0)
