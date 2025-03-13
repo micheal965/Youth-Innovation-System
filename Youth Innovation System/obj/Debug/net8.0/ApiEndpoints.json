@@ -208,6 +208,59 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "Method": "CreateComment",
+    "RelativePath": "api/Comment/Create Comment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "createCommentDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Comment.CreateCommentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "Method": "DeleteComment",
+    "RelativePath": "api/Comment/Delete Comment",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "Method": "UpdateComment",
+    "RelativePath": "api/Comment/Update Comment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateCommentDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Comment.UpdateCommentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Youth_Innovation_System.Controllers.EmailController",
     "Method": "SendEmail",
     "RelativePath": "api/Email/Send-Email",

@@ -32,6 +32,7 @@ namespace Youth_Innovation_System.Extensions
             Services.AddScoped<IPostService, PostService>();
             Services.AddTransient<IEmailService, EmailService>();
             Services.AddScoped<ICloudinaryServices, CloudinaryServices>(); // Register the Cloudinary Service
+            Services.AddScoped<ICommentService,CommentService>();
 
 
             Services.AddAutoMapper(typeof(MappingProfile));
