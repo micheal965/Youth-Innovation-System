@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.Design;
 using System.Security.Claims;
 using Youth_Innovation_System.Core.Entities;
 using Youth_Innovation_System.Core.IServices;
@@ -47,7 +48,7 @@ namespace Youth_Innovation_System.Controllers
 		public async Task<IActionResult> DeleteComment(int commentId)
 		{
 			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-			var result = await _commentService.DeletePostAsync(commentId, userId);
+			var result = await _commentService.DeleteCommentAsync(commentId, userId);
 			if (!result)
 				return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, "Can't delete comment"));
 
@@ -71,6 +72,32 @@ namespace Youth_Innovation_System.Controllers
 			catch (Exception ex)
 			{
 				return BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, ex.Message));
+			}
+		}
+		[Authorize]
+		[HttpGet ("Get Comment By Id")]
+		public async Task<IActionResult> GetComment(int commentId)
+		{
+			try
+			{
+				return Ok(await _commentService.GetCommentAsync(commentId));
+			}
+			catch (NotFoundException ex)
+			{
+				return NotFound(new ApiResponse(StatusCodes.Status404NotFound, ex.Message));
+			}
+		}
+		[Authorize]
+		[HttpGet("Get All Comments")]
+		public async Task<IActionResult> GetAllComments(int postId)
+		{
+			try
+			{
+				return Ok(await _commentService.GetAllCommentsAsync(postId));
+			}
+			catch (NotFoundException ex)
+			{
+				return NotFound(new ApiResponse(StatusCodes.Status404NotFound, ex.Message));
 			}
 		}
 	}

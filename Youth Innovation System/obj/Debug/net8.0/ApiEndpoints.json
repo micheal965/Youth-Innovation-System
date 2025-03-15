@@ -246,6 +246,38 @@
   },
   {
     "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "Method": "GetAllComments",
+    "RelativePath": "api/Comment/Get All Comments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "Method": "GetComment",
+    "RelativePath": "api/Comment/Get Comment By Id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
     "Method": "UpdateComment",
     "RelativePath": "api/Comment/Update Comment",
     "HttpMethod": "PUT",

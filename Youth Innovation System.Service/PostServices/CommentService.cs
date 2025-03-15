@@ -58,7 +58,7 @@ namespace Youth_Innovation_System.Service.PostServices
 			}
 		}
 
-		public async Task<bool> DeletePostAsync(int commentId, string userId)
+		public async Task<bool> DeleteCommentAsync(int commentId, string userId)
 		{
 			var commentRepo = _unitOfWork.Repository<Comment>();
 			UpdateOrDeleteCommentSpec spec = new UpdateOrDeleteCommentSpec(commentId, userId);
@@ -75,6 +75,27 @@ namespace Youth_Innovation_System.Service.PostServices
 			{
 				throw new Exception("Failed to delete comment: " + ex.Message);
 			}
+		}
+
+		public async Task<List<CommentResponseDto>> GetAllCommentsAsync(int postId)
+		{
+			var post =await _unitOfWork.Repository<Post>().GetAsync(postId);
+			if (post == null) throw new Exception("Post not found");
+			GetAllCommentsSepc spec = new GetAllCommentsSepc(postId);
+			var comments = await _unitOfWork.Repository<Comment>().GetAllWithSpecAsync(spec);
+			if (comments.Count == 0)
+				throw new Exception("there is no comments on this post");
+			return _mapper.Map<List<CommentResponseDto>>(comments);
+
+		}
+
+		public async Task<CommentResponseDto> GetCommentAsync(int CommentId)
+		{
+			var commentRepo = _unitOfWork.Repository<Comment>();
+			GetCommentSpec spec = new GetCommentSpec(CommentId);
+			var comment = await commentRepo.GetWithSpecAsync(spec);
+			if (comment == null) throw new Exception("comment not found");
+			return _mapper.Map<CommentResponseDto>(comment);
 		}
 
 		public async Task UpdateCommentAsync(string userId, UpdateCommentDto updateCommentDto)

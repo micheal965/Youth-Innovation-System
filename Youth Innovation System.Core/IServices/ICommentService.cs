@@ -12,7 +12,10 @@ namespace Youth_Innovation_System.Core.IServices
 	public interface ICommentService
 	{
 		Task<CommentResponseDto> CreateCommentAsync(string userId, int postId, CreateCommentDto createCommentDto);
-		Task<bool> DeletePostAsync(int commentId, string userId);
+		Task<bool> DeleteCommentAsync(int commentId, string userId);
 		Task UpdateCommentAsync(string userId, UpdateCommentDto updateCommentDto);
+		Task<CommentResponseDto> GetCommentAsync(int CommentId);
+
+		Task<List<CommentResponseDto>> GetAllCommentsAsync(int postId);
 	}
 }

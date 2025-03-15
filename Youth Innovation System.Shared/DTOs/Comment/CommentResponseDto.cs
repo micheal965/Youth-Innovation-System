@@ -10,6 +10,6 @@ namespace Youth_Innovation_System.Shared.DTOs.Comment
 	{
 		public string Content { get; set; }
 		public DateTime createdOn { get; set; }
-		public int postId { get; set; }
+		//public int postId { get; set; }
 	}
 }
