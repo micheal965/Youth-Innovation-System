@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 using Youth_Innovation_System.Core.Entities;
+using Youth_Innovation_System.Core.Entities.Chat;
 
 namespace Youth_Innovation_System.Repository.Data
 {
@@ -13,6 +13,7 @@ namespace Youth_Innovation_System.Repository.Data
         public DbSet<CommentReply> CommentReplies { get; set; }
         public DbSet<CommentReaction> CommentReactions { get; set; }
         public DbSet<PostImage> PostImages { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

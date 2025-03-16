@@ -22,6 +22,37 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Chat.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ReceiverId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Comment", b =>
                 {
                     b.Property<int>("Id")
@@ -48,7 +79,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("postId");
 
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.CommentReaction", b =>
@@ -75,7 +106,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("commentId");
 
-                    b.ToTable("CommentReactions", (string)null);
+                    b.ToTable("CommentReactions");
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.CommentReply", b =>
@@ -101,7 +132,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("commentId");
 
-                    b.ToTable("CommentReplies", (string)null);
+                    b.ToTable("CommentReplies");
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Post", b =>
@@ -132,7 +163,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Posts", (string)null);
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostImage", b =>
@@ -158,7 +189,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.ToTable("PostImages", (string)null);
+                    b.ToTable("PostImages");
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.React", b =>
@@ -185,7 +216,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasIndex("postId");
 
-                    b.ToTable("Reacts", (string)null);
+                    b.ToTable("Reacts");
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.UserRating", b =>
@@ -216,7 +247,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserRatings", (string)null);
+                    b.ToTable("UserRatings");
                 });
 
             modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Comment", b =>
