@@ -64,11 +64,11 @@ namespace Youth_Innovation_System
 
             app.UseCors("CorsPolicy");
             app.UseRouting();
-            // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapHub<ChatHub>("/chathub");//.RequireAuthorization();
+            app.MapHub<ChatHub>("/chathub").RequireAuthorization();
 
             app.MapControllers();
             app.Run();

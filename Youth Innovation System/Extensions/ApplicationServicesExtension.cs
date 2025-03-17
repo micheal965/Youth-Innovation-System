@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.AspNetCore.SignalR;
 using Youth_Innovation_System.Core.IRedis;
 using Youth_Innovation_System.Core.IRepositories;
 using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.Helpers;
-using Youth_Innovation_System.Helpers.SignalRHelper;
 using Youth_Innovation_System.Repository.Data;
 using Youth_Innovation_System.Repository.Redis;
 using Youth_Innovation_System.Service;
@@ -36,14 +34,13 @@ namespace Youth_Innovation_System.Extensions
             Services.AddTransient<IEmailService, EmailService>();
             Services.AddScoped<ICloudinaryServices, CloudinaryServices>(); // Register the Cloudinary Service
             Services.AddScoped<ICommentService, CommentService>();
+            Services.AddScoped<IChatService, ChatService>();
+            Services.AddSignalR();
 
             //Redis
             Services.AddSingleton<IRedisHelper, RedisHelper>();
             //SignalR
-            Services.AddSignalR();
             Services.AddSingleton<IRedisConnectionManager, RedisConnectionManager>();
-            Services.AddSingleton<IUserIdProvider, CustomUserIdProvider>();
-
             Services.AddAutoMapper(typeof(MappingProfile));
 
             Services.Configure<ApiBehaviorOptions>(options =>

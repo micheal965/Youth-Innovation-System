@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Youth_Innovation_System.Core.Entities.Identity;
-using Youth_Innovation_System.Core.IServices;
 using Youth_Innovation_System.Repository.Identity;
-using Youth_Innovation_System.Service;
 
 namespace Youth_Innovation_System.Extensions
 {
@@ -42,7 +40,21 @@ namespace Youth_Innovation_System.Extensions
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSettings:Secret"]))
 
                     };
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = context =>
+                        {
+                            var accessToken = context.Request.Query["access_token"];
+                            var path = context.HttpContext.Request.Path;
+                            if (!string.IsNullOrEmpty(accessToken) && (path.StartsWithSegments("/chathub")))
+                            {
+                                context.Token = accessToken;
+                            }
+                            return Task.CompletedTask;
+                        }
+                    };
                 });
+
             return Services;
         }
     }

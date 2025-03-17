@@ -208,6 +208,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Youth_Innovation_System.Controllers.ChatController",
+    "Method": "DeleteMessage",
+    "RelativePath": "api/Chat/Delete-Message/{messageId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "messageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.ChatController",
+    "Method": "GetChatHistory",
+    "RelativePath": "api/Chat/Get-Chat-History/{receiverId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "receiverId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
     "Method": "CreateComment",
     "RelativePath": "api/Comment/Create Comment",
