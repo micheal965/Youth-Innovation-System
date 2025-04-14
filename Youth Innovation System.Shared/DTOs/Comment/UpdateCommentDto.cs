@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Youth_Innovation_System.Shared.DTOs.Comment
 {
-	public class UpdateCommentDto
-	{
-		public int Id { get; set; }
-		public string Content { get; set; }
-	}
+    public class UpdateCommentDto
+    {
+        [Required]
+        public int Id { get; set; }
+        [Required]
+        public string Content { get; set; }
+    }
 }

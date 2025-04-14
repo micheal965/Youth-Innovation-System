@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Youth_Innovation_System.Core.Entities;
+using Youth_Innovation_System.Core.Entities.PostAggregate;
 
 namespace Youth_Innovation_System.Repository.Data.Config
 {
@@ -10,12 +10,12 @@ namespace Youth_Innovation_System.Repository.Data.Config
         {
             builder.HasMany(p => p.Reacts)
                 .WithOne(r => r.post)
-                .HasForeignKey(r => r.postId)
-                .OnDelete(DeleteBehavior.Cascade);//Delete reacts if post is deleted
+                .HasForeignKey(r => r.PostId)
+                .OnDelete(DeleteBehavior.Restrict);//Delete reacts if post is deleted
 
             builder.HasMany(p => p.Comments)
-                .WithOne(r => r.post)
-                .HasForeignKey(r => r.postId)
+                .WithOne(c => c.post)
+                .HasForeignKey(c => c.postId)
                 .OnDelete(DeleteBehavior.Cascade);//Delete comments if post is deleted
 
             builder.HasMany(p => p.postImages)

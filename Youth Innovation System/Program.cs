@@ -42,7 +42,7 @@ namespace Youth_Innovation_System
             {
                 options.AddPolicy("CorsPolicy", builder =>
                 {
-                    builder.WithOrigins("https://localhost:7203")
+                    builder.WithOrigins("https://localhost:7040")
                            .AllowAnyMethod()
                            .AllowAnyHeader()
                            .AllowCredentials();

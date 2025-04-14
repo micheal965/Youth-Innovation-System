@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.AuthController",
     "Method": "ConfirmEmail",
     "RelativePath": "api/Auth/Confirm-Email",
     "HttpMethod": "GET",
@@ -21,7 +21,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/Login",
     "HttpMethod": "POST",
@@ -37,7 +37,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.AuthController",
     "Method": "Logout",
     "RelativePath": "api/Auth/Logout",
     "HttpMethod": "POST",
@@ -53,7 +53,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/Register",
     "HttpMethod": "POST",
@@ -104,7 +104,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.AuthController",
     "Method": "RequestResetPassword",
     "RelativePath": "api/Auth/Request-Reset-password",
     "HttpMethod": "POST",
@@ -120,7 +120,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.AuthController",
     "Method": "ResetPassword",
     "RelativePath": "api/Auth/Reset-Password",
     "HttpMethod": "POST",
@@ -136,7 +136,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.AuthController",
     "Method": "RevokeRefreshToken",
     "RelativePath": "api/Auth/Revoke-Refresh-Token",
     "HttpMethod": "POST",
@@ -152,7 +152,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.API.Controllers.AuthController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.AuthController",
     "Method": "RotateRefreshToken",
     "RelativePath": "api/Auth/Rotate-Refresh-Token",
     "HttpMethod": "POST",
@@ -208,7 +208,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.ChatController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Chat.ChatController",
     "Method": "DeleteMessage",
     "RelativePath": "api/Chat/Delete-Message/{messageId}",
     "HttpMethod": "DELETE",
@@ -224,7 +224,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.ChatController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Chat.ChatController",
     "Method": "GetChatHistory",
     "RelativePath": "api/Chat/Get-Chat-History/{receiverId}",
     "HttpMethod": "GET",
@@ -240,18 +240,13 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentController",
     "Method": "CreateComment",
-    "RelativePath": "api/Comment/Create Comment",
+    "RelativePath": "api/Comment/Create-Comment",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "postId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
       {
         "Name": "createCommentDto",
         "Type": "Youth_Innovation_System.Shared.DTOs.Comment.CreateCommentDto",
@@ -261,9 +256,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentController",
+    "Method": "CreateReply",
+    "RelativePath": "api/Comment/Create-Reply",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createReplyDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Comment.CreateReplyDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentController",
     "Method": "DeleteComment",
-    "RelativePath": "api/Comment/Delete Comment",
+    "RelativePath": "api/Comment/Delete-Comment/{commentId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -271,15 +282,15 @@
       {
         "Name": "commentId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentController",
     "Method": "GetAllComments",
-    "RelativePath": "api/Comment/Get All Comments",
+    "RelativePath": "api/Comment/Get-All-Comments/{postId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -287,15 +298,15 @@
       {
         "Name": "postId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentController",
     "Method": "GetComment",
-    "RelativePath": "api/Comment/Get Comment By Id",
+    "RelativePath": "api/Comment/Get-Comment-By-Id/{commentId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -303,15 +314,31 @@
       {
         "Name": "commentId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.CommentController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentController",
+    "Method": "GetCommentsCount",
+    "RelativePath": "api/Comment/Get-Comments-Count/{postId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentController",
     "Method": "UpdateComment",
-    "RelativePath": "api/Comment/Update Comment",
+    "RelativePath": "api/Comment/Update-Comment",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -325,7 +352,71 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.EmailController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentReactionController",
+    "Method": "AddReaction",
+    "RelativePath": "api/CommentReaction/Add-Reaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addReactionToCommentDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Comment.AddReactionToCommentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentReactionController",
+    "Method": "GetReactions",
+    "RelativePath": "api/CommentReaction/Get-Reactions/{commentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentReactionController",
+    "Method": "GetReactionsCount",
+    "RelativePath": "api/CommentReaction/Reactions-Count/{commentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.CommentReactionController",
+    "Method": "RemoveReaction",
+    "RelativePath": "api/CommentReaction/Remove-Reaction/{commentId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.Email.EmailController",
     "Method": "SendEmail",
     "RelativePath": "api/Email/Send-Email",
     "HttpMethod": "POST",
@@ -334,14 +425,110 @@
     "Parameters": [
       {
         "Name": "sendEmailDto",
-        "Type": "Youth_Innovation_System.Shared.DTOs.SendEmailDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Email.SendEmailDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.OfferController",
+    "Method": "AcceptOffer",
+    "RelativePath": "api/Offer/Accept/{offerId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "offerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.OfferController",
+    "Method": "GetOfferForPost",
+    "RelativePath": "api/Offer/Get-Offer/{offerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "offerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.OfferController",
+    "Method": "GetOffersForPost",
+    "RelativePath": "api/Offer/Get-Offers/{postId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.OfferController",
+    "Method": "GetPendingOffersForPost",
+    "RelativePath": "api/Offer/Get-Pending-Offers/{postId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.OfferController",
+    "Method": "MakeOffer",
+    "RelativePath": "api/Offer/Make-Offer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "proposalDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Offer.CreateOfferDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.OfferController",
+    "Method": "RefuseOffer",
+    "RelativePath": "api/Offer/Refuse/{offerId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "offerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostController",
     "Method": "CreatePost",
     "RelativePath": "api/Post/Create-Post",
     "HttpMethod": "POST",
@@ -367,7 +554,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostController",
     "Method": "DeletePost",
     "RelativePath": "api/Post/Delete-Post/{postId}",
     "HttpMethod": "DELETE",
@@ -383,7 +570,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostController",
     "Method": "GetAllPosts",
     "RelativePath": "api/Post/Get-All-Posts",
     "HttpMethod": "GET",
@@ -399,7 +586,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostController",
     "Method": "GetPost",
     "RelativePath": "api/Post/Get-Post/{postId}",
     "HttpMethod": "GET",
@@ -415,7 +602,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostController",
     "Method": "GetUserPosts",
     "RelativePath": "api/Post/Get-User-Posts",
     "HttpMethod": "GET",
@@ -431,7 +618,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.PostController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostController",
     "Method": "UpdatePost",
     "RelativePath": "api/Post/Update-Post",
     "HttpMethod": "PUT",
@@ -462,7 +649,71 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostReactionController",
+    "Method": "AddReaction",
+    "RelativePath": "api/PostReaction/Add-Reaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addReactionDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.Post.AddReactionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostReactionController",
+    "Method": "GetReactions",
+    "RelativePath": "api/PostReaction/Get-Reactions/{postId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostReactionController",
+    "Method": "GetReactionsCount",
+    "RelativePath": "api/PostReaction/Reactions-Count/{postId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.PostAggregate.PostReactionController",
+    "Method": "RemoveReaction",
+    "RelativePath": "api/PostReaction/Remove-Reaction/{postId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.RoleController",
     "Method": "AddRoleToUser",
     "RelativePath": "api/Role/Add-User-Role",
     "HttpMethod": "POST",
@@ -478,7 +729,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.RoleController",
     "Method": "DeleteRoleFromUser",
     "RelativePath": "api/Role/Delete-User-Role",
     "HttpMethod": "DELETE",
@@ -494,7 +745,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.RoleController",
     "Method": "GetRolesOfUser",
     "RelativePath": "api/Role/Get-User-Roles/{UserId}",
     "HttpMethod": "GET",
@@ -510,7 +761,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.RoleController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.RoleController",
     "Method": "UpdateRolesOfUser",
     "RelativePath": "api/Role/Update-Role",
     "HttpMethod": "PUT",
@@ -526,7 +777,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "AddOrUpdateProfilePicture",
     "RelativePath": "api/User/AddOrUpdate-Profile-Picture",
     "HttpMethod": "POST",
@@ -542,7 +793,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "ChangePassword",
     "RelativePath": "api/User/Change-Password",
     "HttpMethod": "POST",
@@ -558,7 +809,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "DeleteProfilePicture",
     "RelativePath": "api/User/Delete-Profile-Picture",
     "HttpMethod": "DELETE",
@@ -568,7 +819,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "DeleteUser",
     "RelativePath": "api/User/Delete-User/{UserId}",
     "HttpMethod": "DELETE",
@@ -584,7 +835,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "GetAllUsers",
     "RelativePath": "api/User/Get-All-Users",
     "HttpMethod": "GET",
@@ -594,7 +845,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "GetProfilePicture",
     "RelativePath": "api/User/Get-Profile-Picture/{userId}",
     "HttpMethod": "GET",
@@ -610,7 +861,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "GetUserById",
     "RelativePath": "api/User/Get-User/{userId}",
     "HttpMethod": "GET",
@@ -626,7 +877,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "GetLoginHistory",
     "RelativePath": "api/User/login-history/{userId}",
     "HttpMethod": "GET",
@@ -642,7 +893,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Youth_Innovation_System.Controllers.UserController",
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserController",
     "Method": "UpdateUser",
     "RelativePath": "api/User/Update-User",
     "HttpMethod": "POST",
@@ -652,6 +903,54 @@
       {
         "Name": "updateUserDto",
         "Type": "Youth_Innovation_System.Shared.DTOs.Identity.UpdateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserRatingController",
+    "Method": "AddOrUpdateRating",
+    "RelativePath": "api/UserRating/Add-Or-Update-Rating",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addOrUpdateRatingDto",
+        "Type": "Youth_Innovation_System.Shared.DTOs.UserRating.AddOrUpdateRatingDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserRatingController",
+    "Method": "GetUserAverageRating",
+    "RelativePath": "api/UserRating/Get-Average-Rating/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Youth_Innovation_System.Controllers.Identity.UserRatingController",
+    "Method": "GetUserRatings",
+    "RelativePath": "api/UserRating/Get-Ratings/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

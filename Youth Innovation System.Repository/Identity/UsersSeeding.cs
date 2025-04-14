@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Youth_Innovation_System.Core.Entities.Identity;
-using Youth_Innovation_System.Core.Roles;
+using Youth_Innovation_System.Core.Shared.Enums;
 
 namespace Youth_Innovation_System.Repository.Identity
 {

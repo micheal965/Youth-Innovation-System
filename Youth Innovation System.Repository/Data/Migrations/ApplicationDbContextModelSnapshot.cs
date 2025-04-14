@@ -53,173 +53,7 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Comment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("createOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("postId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("postId");
-
-                    b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.CommentReaction", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("commentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("reactionType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("commentId");
-
-                    b.ToTable("CommentReactions");
-                });
-
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.CommentReply", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("commentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("commentId");
-
-                    b.ToTable("CommentReplies");
-                });
-
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Post", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("createdOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("reactsCount")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("imagePublicId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("imageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostId");
-
-                    b.ToTable("PostImages");
-                });
-
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.React", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("postId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("reactionType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("postId");
-
-                    b.ToTable("Reacts");
-                });
-
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.UserRating", b =>
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Identity.UserRating", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -250,42 +84,199 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
                     b.ToTable("UserRatings");
                 });
 
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Comment", b =>
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.Comment", b =>
                 {
-                    b.HasOne("Youth_Innovation_System.Core.Entities.Post", "post")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ParentCommentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("createOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("postId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentCommentId");
+
+                    b.HasIndex("postId");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.Offer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InvestorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("OfferValue")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ProfitRate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("Offers");
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("createdOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("reactsCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.PostImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("imagePublicId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("imageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("PostImages");
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.React", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("reactionType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("Reacts");
+                });
+
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.Comment", b =>
+                {
+                    b.HasOne("Youth_Innovation_System.Core.Entities.PostAggregate.Comment", "ParentComment")
+                        .WithMany("Replies")
+                        .HasForeignKey("ParentCommentId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("Youth_Innovation_System.Core.Entities.PostAggregate.Post", "post")
                         .WithMany("Comments")
                         .HasForeignKey("postId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("ParentComment");
+
                     b.Navigation("post");
                 });
 
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.CommentReaction", b =>
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.Offer", b =>
                 {
-                    b.HasOne("Youth_Innovation_System.Core.Entities.Comment", "comment")
-                        .WithMany("CommentReactions")
-                        .HasForeignKey("commentId")
+                    b.HasOne("Youth_Innovation_System.Core.Entities.PostAggregate.Post", "Post")
+                        .WithMany("Offers")
+                        .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("comment");
+                    b.Navigation("Post");
                 });
 
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.CommentReply", b =>
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.PostImage", b =>
                 {
-                    b.HasOne("Youth_Innovation_System.Core.Entities.Comment", "comment")
-                        .WithMany("CommentReplies")
-                        .HasForeignKey("commentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("comment");
-                });
-
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostImage", b =>
-                {
-                    b.HasOne("Youth_Innovation_System.Core.Entities.Post", "post")
+                    b.HasOne("Youth_Innovation_System.Core.Entities.PostAggregate.Post", "post")
                         .WithMany("postImages")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -294,27 +285,35 @@ namespace Youth_Innovation_System.Repository.Data.Migrations
                     b.Navigation("post");
                 });
 
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.React", b =>
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.React", b =>
                 {
-                    b.HasOne("Youth_Innovation_System.Core.Entities.Post", "post")
+                    b.HasOne("Youth_Innovation_System.Core.Entities.PostAggregate.Comment", "comment")
+                        .WithMany("Reactions")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Youth_Innovation_System.Core.Entities.PostAggregate.Post", "post")
                         .WithMany("Reacts")
-                        .HasForeignKey("postId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("comment");
 
                     b.Navigation("post");
                 });
 
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Comment", b =>
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.Comment", b =>
                 {
-                    b.Navigation("CommentReactions");
+                    b.Navigation("Reactions");
 
-                    b.Navigation("CommentReplies");
+                    b.Navigation("Replies");
                 });
 
-            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.Post", b =>
+            modelBuilder.Entity("Youth_Innovation_System.Core.Entities.PostAggregate.Post", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Offers");
 
                     b.Navigation("Reacts");
 

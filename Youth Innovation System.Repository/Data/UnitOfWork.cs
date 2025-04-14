@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore;
 using Youth_Innovation_System.Core;
 using Youth_Innovation_System.Core.Entities;
 using Youth_Innovation_System.Core.IRepositories;

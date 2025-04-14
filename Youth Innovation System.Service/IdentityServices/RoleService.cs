@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Youth_Innovation_System.Core.Entities.Identity;
-using Youth_Innovation_System.Core.IServices;
-using Youth_Innovation_System.Core.Roles;
+using Youth_Innovation_System.Core.IServices.IdentityServices;
+using Youth_Innovation_System.Core.Shared.Enums;
 using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Identity.Roles;
 

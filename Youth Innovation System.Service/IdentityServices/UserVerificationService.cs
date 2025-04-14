@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using System.Text;
 using Youth_Innovation_System.Core.Entities.Identity;
-using Youth_Innovation_System.Core.IServices;
+using Youth_Innovation_System.Core.IServices.EmailServices;
+using Youth_Innovation_System.Core.IServices.IdentityServices;
 using Youth_Innovation_System.Shared.ApiResponses;
 
 namespace Youth_Innovation_System.Service.IdentityServices
