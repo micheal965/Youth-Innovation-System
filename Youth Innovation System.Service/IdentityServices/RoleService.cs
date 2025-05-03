@@ -54,9 +54,6 @@ namespace Youth_Innovation_System.Service.IdentityServices
             if (!result.Succeeded)
                 return new ApiExceptionResponse(StatusCodes.Status400BadRequest, "Failed to update roles.", string.Join(",", result.Errors.Select(e => e.Description)));
             return new ApiResponse(StatusCodes.Status200OK, "User roles updated successfully");
-
-
-
         }
         public async Task<ApiResponse> AddUserRoleAsync(AssignRoleDto assignRoleDto)
         {

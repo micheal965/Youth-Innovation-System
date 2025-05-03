@@ -49,21 +49,21 @@ namespace Youth_Innovation_System.Service.IdentityServices
             //Ensuring user exist by email
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
             if (user == null)
-            {
                 throw new UnauthorizedAccessException("Invalid login attempt!");
-            }
+
+            if (!user.EmailConfirmed)
+                throw new UnauthorizedAccessException("Email is not confirmed. Please verify your email first.");
+
             //checking password
             //assume no lockout
             var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, loginDto.IsPersistent, false);
             if (!result.Succeeded)
                 throw new UnauthorizedAccessException("Invalid login attempt!");
-            if (!user.EmailConfirmed)
-                throw new UnauthorizedAccessException("Email is not confirmed. Please verify your email first.");
+
 
             //track ipAddress in userloginhistory table
             await _userService.SaveLoginAttemptAsync(loginDto.Email);
-            //returning Response
-            var roles = await _userManager.GetRolesAsync(user);
+
             //Check for refreshToken
             var RefreshTokenObj = new RefreshToken();
             if (user.refreshTokens.Any(t => t.isActive))
@@ -77,12 +77,15 @@ namespace Youth_Innovation_System.Service.IdentityServices
                 RefreshTokenObj = GenerateRefreshTokenObject();
                 user.refreshTokens.Add(RefreshTokenObj);
                 await _userManager.UpdateAsync(user);
-
             }
 
             //set refresh token if not empty in the cookies 
             if (!string.IsNullOrEmpty(RefreshTokenObj.token))
                 AppendRefreshTokenInCookies(RefreshTokenObj.token, RefreshTokenObj.expiryDate);
+
+            //returning Response
+            var roles = await _userManager.GetRolesAsync(user);
+
             return new LoginResponseDto()
             {
                 Id = user.Id,
@@ -103,13 +106,16 @@ namespace Youth_Innovation_System.Service.IdentityServices
                 try
                 {
                     imageUploadResult = await _cloudinaryServices.UploadImageAsync(registerDto.ProfilePicture);
-
                 }
                 catch (Exception ex)
                 {
                     throw new Exception($"Image upload failed: {ex.Message}");
                 }
             }
+
+            //ensuring email doesn't exist before
+            if (await _userManager.FindByEmailAsync(registerDto.Email) != null)
+                throw new Exception($"Email {registerDto.Email} is already taken!");
 
             var user = new ApplicationUser()
             {
@@ -120,12 +126,11 @@ namespace Youth_Innovation_System.Service.IdentityServices
                 PhoneNumber = registerDto.PhoneNumber,
                 pictureUrl = imageUploadResult?.SecureUri.ToString(),
             };
-            //ensuring email doesn't exist before
-            if (await _userManager.FindByEmailAsync(registerDto.Email) != null)
-                throw new Exception($"Email {registerDto.Email} is already taken!");
+
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
             var addRoleresult = await _userManager.AddToRoleAsync(user, UserRoles.User.ToString());
+
             if (!result.Succeeded)
                 throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
             if (!addRoleresult.Succeeded)

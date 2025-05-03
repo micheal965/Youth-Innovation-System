@@ -47,6 +47,7 @@ namespace Youth_Innovation_System.UnitTesting
             Assert.That(result.StatusCode, Is.EqualTo(StatusCodes.Status404NotFound));
             Assert.That(result.Message, Is.EqualTo("user not found"));
         }
+
         [Test]
         public async Task ChangePasswordAsync_WrongOldPassword_ReturnsBadRequeest()
         {

@@ -1,0 +1,1753 @@
+{
+	"info": {
+		"_postman_id": "4ea04bf2-ec8a-4524-ac1d-e42818b14baa",
+		"name": "Youth Innovation System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39036644"
+	},
+	"item": [
+		{
+			"name": "BuggyController",
+			"item": [
+				{
+					"name": "GetServerError",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Buggy/InternalServerError",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Buggy",
+								"InternalServerError"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get BadRequest for Validation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Buggy/BadRequestForValidation",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Buggy",
+								"BadRequestForValidation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get BadRequest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Buggy/BadRequest",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Buggy",
+								"BadRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Not Found Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/Test",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"Test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Not Found in Db",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Buggy/NotFound",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Buggy",
+								"NotFound"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AuthController",
+			"item": [
+				{
+					"name": "Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Auth/Register",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"michealghobriall@gmail.com\",\r\n    \"Password\": \"P@$$w0rd\"\r\n    // \"Email\": \"micheal.magdi69@gmail.com\",\r\n    // \"Password\": \"micheal1M\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Auth/Login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RevokeRefreshTokenUsingBody",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"12THB8/BlTNqCcNu79UMyhDWg6hDMrXCZB644HdhbNQ=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Auth/Revoke-Refresh-Token",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Revoke-Refresh-Token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RevokeRefreshTokenUsingCookie",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Auth/Revoke-Refresh-Token",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Revoke-Refresh-Token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RotateRefreshToken",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Auth/Rotate-Refresh-Token",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Rotate-Refresh-Token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI0MTI2NTBjLTIxNTUtNGEwOC1hNjRmLTZkMTBjNDk4Yjg2OCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJtaWNoZWFsLm1hZ2RpNjkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWNoZWFsLm1hZ2RpNjlAZ21haWwuY29tIiwiZXhwIjoxNzQwNTIyNTQ4LCJpc3MiOiJZb3VySXNzdWVyIiwiYXVkIjoiWW91ckF1ZGllbmNlIn0.OdflPbw9TO9_mq9NnRoHMhdiIhdPchgYEE9uEJ8GuRk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjE0MTQwOWMwLTU3ZWYtNDJjYi05NzAyLTlkNTNlYzJlYzBlOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJtaWNrbyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6Im1pY2tvQGV4YW1wbGUuY29tIiwiZXhwIjoxNzM3NjQyMjM0LCJpc3MiOiJZb3VySXNzdWVyIiwiYXVkIjoiWW91ckF1ZGllbmNlIn0.KqgiwAG1gRCoob-hTXpp1M_xheKrl3w-Zxtmhb_V_gs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Auth/Logout",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const user = pm.response.json();",
+									"",
+									"pm.test(\"Has properties\", function () {",
+									"    pm.expect(user).to.have.property('displayName');",
+									"    pm.expect(user).to.have.property('email');",
+									"    pm.expect(user).to.have.property('token');",
+									"});",
+									"",
+									"if (pm.test(\"Has properties\")) {",
+									"    pm.globals.set('tom_token', user.token);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"oldPassword\": \"Micheal10\",\n  \"newPassword\": \"Micheal10!\",\n  \"ConfirmPassword\": \"Micheal10!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Account/ChangePassword",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Account",
+								"ChangePassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserController",
+			"item": [
+				{
+					"name": "GetLoginhistory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMTI5NywiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.P0tK1Dq8zZ3ZTRjcN6RZQhV1-C24M2MV6FGmrydJyBo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/login-history/2412650c-2155-4a08-a64f-6d10c498b868",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"login-history",
+								"2412650c-2155-4a08-a64f-6d10c498b868"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProfilePicture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMTI5NywiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.P0tK1Dq8zZ3ZTRjcN6RZQhV1-C24M2MV6FGmrydJyBo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/Get-Profile-Picture/a440baa8-09d8-4287-848a-38854fbbf810",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Get-Profile-Picture",
+								"a440baa8-09d8-4287-848a-38854fbbf810"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProfilePicture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMTI5NywiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.P0tK1Dq8zZ3ZTRjcN6RZQhV1-C24M2MV6FGmrydJyBo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "postman-cloud:///1effc7ee-09f9-4b90-95c1-3ea87d9cb32e"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/AddOrUpdate-Profile-Picture",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"AddOrUpdate-Profile-Picture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProfilePicture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/Delete-Profile-Picture",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Delete-Profile-Picture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI0MTI2NTBjLTIxNTUtNGEwOC1hNjRmLTZkMTBjNDk4Yjg2OCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJtaWNoZWFsLm1hZ2RpNjkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWNoZWFsLm1hZ2RpNjlAZ21haWwuY29tIiwiZXhwIjoxNzQwNTIzMTM5LCJpc3MiOiJZb3VySXNzdWVyIiwiYXVkIjoiWW91ckF1ZGllbmNlIn0.6HEnKWFClDR3Em_i5_c1oIfudpfYmq7kvjvrNhjhZjk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"OldPassword\":\"micheal1M\",\r\n    \"NewPassword\":\"01201605049Mm\",\r\n    \"ConfirmPassword\":\"01201605049Mm\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/Change-Password",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Change-Password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUsers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/Get-All-Users/",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Get-All-Users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMTI5NywiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.P0tK1Dq8zZ3ZTRjcN6RZQhV1-C24M2MV6FGmrydJyBo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/Get-User/e9f746d6-cc2f-4632-a3d5-58c1931a2602",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Get-User",
+								"e9f746d6-cc2f-4632-a3d5-58c1931a2602"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMjEyMCwiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.YzUF_AEDB7KjYdvV-VMCRVpMOk4ZJq7VCPka9AqSFaM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/Delete-User/832f52b6-7afe-4284-a5bb-f6d8dba6e054",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Delete-User",
+								"832f52b6-7afe-4284-a5bb-f6d8dba6e054"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMjEyMCwiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.YzUF_AEDB7KjYdvV-VMCRVpMOk4ZJq7VCPka9AqSFaM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Micheal\",\r\n    \"lastName\":\"Ghobrial\",\r\n    \"userName\":\"Micheal_Ghobrial\",\r\n    \"phoneNumber\":\"01201605049\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/User/Update-User/",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Update-User",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EmailController",
+			"item": [
+				{
+					"name": "SendEmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\":\"micheal.magdi69@gmail.com\",\r\n    \"body\":\"aa\",\r\n    \"subject\":\"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Email/Send-Email",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Email",
+								"Send-Email"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RoleController",
+			"item": [
+				{
+					"name": "GetUserRoles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMTI5NywiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.P0tK1Dq8zZ3ZTRjcN6RZQhV1-C24M2MV6FGmrydJyBo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Role/Get-User-Roles/a440baa8-09d8-4287-848a-38854fbbf810",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Role",
+								"Get-User-Roles",
+								"a440baa8-09d8-4287-848a-38854fbbf810"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMTI5NywiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.P0tK1Dq8zZ3ZTRjcN6RZQhV1-C24M2MV6FGmrydJyBo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"832f52b6-7afe-4284-a5bb-f6d8dba6e054\",\r\n    \"Role\":\"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Role/Delete-User-Role",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Role",
+								"Delete-User-Role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserRoles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMTI5NywiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.P0tK1Dq8zZ3ZTRjcN6RZQhV1-C24M2MV6FGmrydJyBo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"userId\":\"832f52b6-7afe-4284-a5bb-f6d8dba6e054\",\r\n    \"Roles\":[\r\n        \"User\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Role/Update-Role",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Role",
+								"Update-Role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddUserRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU5Zjc0NmQ2LWNjMmYtNDYzMi1hM2Q1LTU4YzE5MzFhMjYwMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNaWNoZWFsLkdob2JyaWFsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWljaGVhbGdob2JyaWFsbEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc0MTMwMTI5NywiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.P0tK1Dq8zZ3ZTRjcN6RZQhV1-C24M2MV6FGmrydJyBo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserId\":\"e9f746d6-cc2f-4632-a3d5-58c1931a2602\",\r\n    \"role\":\"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Role/Add-User-Role",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Role",
+								"Add-User-Role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PostController",
+			"item": [
+				{
+					"name": "CreatePost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Title",
+									"value": "Contentt",
+									"type": "text"
+								},
+								{
+									"key": "Content",
+									"value": "testtttt\n",
+									"type": "text"
+								},
+								{
+									"key": "Images",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1effd123-2b13-4e50-afc7-1b1cd8a6f552",
+										"postman-cloud:///1effc7ee-09f9-4b90-95c1-3ea87d9cb32e"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Post/Create-Post",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Post",
+								"Create-Post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePost",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Title",
+									"value": "TestUpdate",
+									"type": "text"
+								},
+								{
+									"key": "Content",
+									"value": "update\n",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Images",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1effc712-0eb7-42e0-bbc9-8abb6dbf4645",
+										"postman-cloud:///1effbaed-1146-4230-8b7b-abb0e890adc5"
+									]
+								},
+								{
+									"key": "Id",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Post/Update-Post",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Post",
+								"Update-Post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePost",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Post/Delete-Post/16",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Post",
+								"Delete-Post",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Post/Get-Post/7",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Post",
+								"Get-Post",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserPosts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"userId\":\"a440baa8-09d8-4287-848a-38854fbbf810\",\r\n \"pageSize\":6,\r\n \"pageNumber\":1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Post/Get-User-Posts",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Post",
+								"Get-User-Posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllPosts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pageSize\":3,\r\n \"pageNumber\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Post/Get-All-Posts",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Post",
+								"Get-All-Posts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ChatController",
+			"item": [
+				{
+					"name": "GetChatHistory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImE0NDBiYWE4LTA5ZDgtNDI4Ny04NDhhLTM4ODU0ZmJiZjgxMCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJtaWNoZWFsLm1hZ2RpNjkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWNoZWFsLm1hZ2RpNjlAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTc0MjE5MDg5NiwiaXNzIjoiWW91cklzc3VlciIsImF1ZCI6IllvdXJBdWRpZW5jZSJ9.YSdnd1nNeq3jW85tzY0SWW4zD8du63NkV7esXWI7FMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"userId\":\"a440baa8-09d8-4287-848a-38854fbbf810\",\r\n \"pageSize\":6,\r\n \"pageNumber\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Chat/Get-Chat-History/5e681461-90dc-46c9-ab7a-deec25ba6db9",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Chat",
+								"Get-Chat-History",
+								"5e681461-90dc-46c9-ab7a-deec25ba6db9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMessage",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"userId\":\"a440baa8-09d8-4287-848a-38854fbbf810\",\r\n \"pageSize\":6,\r\n \"pageNumber\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Chat/Delete-Message/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Chat",
+								"Delete-Message",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserRatingController",
+			"item": [
+				{
+					"name": "AddOrUpdateRating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ratedUserId\":\"a440baa8-09d8-4287-848a-38854fbbf810\" ,\r\n    \"Rating\":1,\r\n    \"Review\":\" aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/UserRating/Add-Or-Update-Rating",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"UserRating",
+								"Add-Or-Update-Rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserRatings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/UserRating/Get-Ratings/a440baa8-09d8-4287-848a-38854fbbf810",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"UserRating",
+								"Get-Ratings",
+								"a440baa8-09d8-4287-848a-38854fbbf810"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserAvgRatings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/UserRating/Get-Average-Rating/a440baa8-09d8-4287-848a-38854fbbf810",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"UserRating",
+								"Get-Average-Rating",
+								"a440baa8-09d8-4287-848a-38854fbbf810"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OfferController",
+			"item": [
+				{
+					"name": "AcceptOffer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Offer/Accept/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Offer",
+								"Accept",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RefuseOffer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Offer/Refuse/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Offer",
+								"Refuse",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MakeOffer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PostId\":1,\r\n    \"OfferValue\":2,\r\n    \"ProfitRate\":3,\r\n    \"Description\":\"aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Offer/Make-Offer",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Offer",
+								"Make-Offer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOffers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Offer/Get-Offers/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Offer",
+								"Get-Offers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOffer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Offer/Get-Offer/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Offer",
+								"Get-Offer",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPendingOffers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Offer/Get-Pending-Offers/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Offer",
+								"Get-Pending-Offers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PostReactionController",
+			"item": [
+				{
+					"name": "AddReaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postId\":1,\r\n    \"ReactionType\":\"Sad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/PostReaction/Add-Reaction",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"PostReaction",
+								"Add-Reaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove-Reaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/PostReaction/Remove-Reaction/3",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"PostReaction",
+								"Remove-Reaction",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetReactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/PostReaction/Get-Reactions/70",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"PostReaction",
+								"Get-Reactions",
+								"70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetReactionsCount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/PostReaction/Reactions-Count/70",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"PostReaction",
+								"Reactions-Count",
+								"70"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CommentController",
+			"item": [
+				{
+					"name": "CreateComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postId\":1,\r\n    \"content\":\"testt2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Comment/Create-Comment",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Comment",
+								"Create-Comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateReply",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"parentCommentId\":2,\r\n      \"Content\": \"Reply3\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Comment/Create-Reply",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Comment",
+								"Create-Reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateComment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"Id\":2,\r\n      \"Content\": \"updated\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Comment/Update-Comment",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Comment",
+								"Update-Comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteComment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"Id\":70,\r\n      \"Content\": \"Reply\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Comment/Delete-Comment/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Comment",
+								"Delete-Comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetComment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Comment/Get-Comment-By-Id/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Comment",
+								"Get-Comment-By-Id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllComments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Comment/Get-All-Comments/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Comment",
+								"Get-All-Comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCommentsCount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Comment/Get-Comments-Count/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Comment",
+								"Get-Comments-Count",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CommentReactionController",
+			"item": [
+				{
+					"name": "AddReaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentId\":2,\r\n    \"ReactionType\":\"Haha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/CommentReaction/Add-Reaction",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"CommentReaction",
+								"Add-Reaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove-Reaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/CommentReaction/Remove-Reaction/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"CommentReaction",
+								"Remove-Reaction",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetReactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/CommentReaction/Get-Reactions/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"CommentReaction",
+								"Get-Reactions",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetReactionsCount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/CommentReaction/Reactions-Count/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"CommentReaction",
+								"Reactions-Count",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "http://localhost:5128",
+			"type": "string"
+		}
+	]
+}
