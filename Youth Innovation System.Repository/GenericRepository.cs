@@ -20,11 +20,10 @@ namespace Youth_Innovation_System.Repository
         => await _dbContext.Set<T>().AddRangeAsync(entities);
         public void Delete(T entity)
         => _dbContext.Set<T>().Remove(entity);
-        // Implementing DeleteRange
         public void DeleteRange(IEnumerable<T> entities)
         => _dbContext.Set<T>().RemoveRange(entities);
         public async Task<IReadOnlyList<T>> GetAllAsync()
-        => await _dbContext.Set<T>().ToListAsync();
+        => await _dbContext.Set<T>().AsNoTracking().ToListAsync();
 
         public async Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecification<T> spec)
         => await GetQuery(spec).AsNoTracking().ToListAsync();
@@ -40,5 +39,11 @@ namespace Youth_Innovation_System.Repository
 
         private IQueryable<T> GetQuery(ISpecification<T> spec)
           => SpecificationEvaluator<T>.BuildQuery(_dbContext.Set<T>(), spec);
+
+        public void SoftDelete(T entity)
+        {
+            entity.isDeleted = true;
+            Update(entity);
+        }
     }
 }

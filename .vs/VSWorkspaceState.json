@@ -3,9 +3,11 @@
     "",
     "\\Youth Innovation System",
     "\\Youth Innovation System.Repository",
+    "\\Youth Innovation System.Service",
+    "\\Youth Innovation System.Service\\IdentityServices",
     "\\Youth Innovation System\\Controllers",
     "\\Youth Innovation System\\Controllers\\PostAggregate"
   ],
-  "SelectedNode": "\\Youth Innovation System.Repository\\GenericRepository.cs",
+  "SelectedNode": "\\Youth Innovation System.Service\\IdentityServices\\UserRatingServices.cs",
   "PreviewInSolutionExplorer": false
 }

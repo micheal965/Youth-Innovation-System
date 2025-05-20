@@ -60,7 +60,6 @@ namespace Youth_Innovation_System.Service.IdentityServices
             if (!result.Succeeded)
                 throw new UnauthorizedAccessException("Invalid login attempt!");
 
-
             //track ipAddress in userloginhistory table
             await _userService.SaveLoginAttemptAsync(loginDto.Email);
 

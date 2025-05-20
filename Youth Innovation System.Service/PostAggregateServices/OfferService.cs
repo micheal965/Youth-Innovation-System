@@ -91,7 +91,7 @@ namespace Youth_Innovation_System.Service.PostAggregateServices
                                 new GetPostForEnsuringOwnerCannotMakeOfferForHimSelfSpecifications(offerDto.PostId);
 
             var Post = await _unitOfWork.Repository<Post>().GetWithSpecAsync(spec);
-            if (investorId == Post.UserId) return new ApiResponse(StatusCodes.Status400BadRequest, "PostOwner cannot make offer for himself");
+            if (investorId == Post.CreatedBy) return new ApiResponse(StatusCodes.Status400BadRequest, "PostOwner cannot make offer for himself");
 
             var newOffer = new Offer()
             {

@@ -6,6 +6,5 @@
         public string ReceiverId { get; set; }//from identitydb
         public string Content { get; set; }
         public DateTime Timestamp { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

@@ -41,7 +41,7 @@ namespace Youth_Innovation_System.Service.PostAggregateServices
             {
                 var newPost = new Post()
                 {
-                    UserId = userId,
+                    CreatedBy = userId,
                     Title = createPostDto.Title,
                     Content = createPostDto.Content,
                 };
@@ -81,18 +81,22 @@ namespace Youth_Innovation_System.Service.PostAggregateServices
             var post = await postRepo.GetWithSpecAsync(spec);
             if (post == null) return false;
 
+            postRepo.SoftDelete(post);
+            post.DeletedBy = userId;
+            if (await _unitOfWork.CompleteAsync() > 0) return true;
 
-            bool DeletePhotosResult = false;
-            if (post.postImages.Count > 0)
-            {
-                DeletePhotosResult = await _cloudinaryServices.DeleteImagesAsync(post.postImages.Select(pi => pi.imageUrl).ToList());
-            }
-            if (DeletePhotosResult)
-            {
-                postRepo.Delete(post);
-                if (await _unitOfWork.CompleteAsync() > 0) return true;
-            }
             return false;
+
+            //bool DeletePhotosResult = false;
+            //if (post.postImages.Count > 0)
+            //    DeletePhotosResult = await _cloudinaryServices.DeleteImagesAsync(post.postImages.Select(pi => pi.imageUrl).ToList());
+
+            //if (DeletePhotosResult || post.postImages.Count == 0)
+            //{
+            //    postRepo.SoftDelete(post);
+            //    if (await _unitOfWork.CompleteAsync() > 0) return true;
+            //}
+            //return false;
         }
         public async Task UpdatePostAsync(string userId, UpdatePostDto updatePostDto)
         {
@@ -131,6 +135,7 @@ namespace Youth_Innovation_System.Service.PostAggregateServices
                         post.postImages.AddRange(postImages);
                     }
                 }
+                post.ModifidBy = userId;
                 postRepo.Update(post);
                 await _unitOfWork.CompleteAsync();
             }

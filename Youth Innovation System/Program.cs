@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
+using System.Threading.RateLimiting;
 using Youth_Innovation_System.API.Middlewares;
 using Youth_Innovation_System.Extensions;
 using Youth_Innovation_System.Middlewares;
@@ -16,7 +17,6 @@ namespace Youth_Innovation_System
 
             // Add services to the container.
             builder.Services.AddControllers();
-
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -37,6 +37,28 @@ namespace Youth_Innovation_System
             //add applicationservices
 
             await builder.Services.AddAppServices();
+
+            //Defend from DDos
+            builder.Services.AddRateLimiter(options =>
+            {
+                options.AddPolicy("ip-policy", context =>
+                {
+                    var ipAddress = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+                    Console.WriteLine($">> Incoming IP: {ipAddress}");
+                    return RateLimitPartition.GetFixedWindowLimiter(ipAddress, _ => new FixedWindowRateLimiterOptions
+                    {
+                        PermitLimit = 1,
+                        Window = TimeSpan.FromSeconds(100),
+                        QueueLimit = 0,
+                        QueueProcessingOrder = QueueProcessingOrder.OldestFirst
+                    });
+                });
+                options.OnRejected = async (context, token) =>
+                {
+                    context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
+                    await context.HttpContext.Response.WriteAsync("Too many requests", token);
+                };
+            });
 
             builder.Services.AddCors(options =>
             {
@@ -61,7 +83,7 @@ namespace Youth_Innovation_System
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseRateLimiter();
             app.UseCors("CorsPolicy");
             app.UseRouting();
             app.UseHttpsRedirection();
@@ -71,6 +93,7 @@ namespace Youth_Innovation_System
             app.MapHub<ChatHub>("/chathub").RequireAuthorization();
 
             app.MapControllers();
+
             app.Run();
         }
     }

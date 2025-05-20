@@ -22,6 +22,7 @@ namespace Youth_Innovation_System.Shared.ApiResponses
                 HttpStatusCode.Forbidden => "Forbidden",
                 HttpStatusCode.NotFound => "Not Found",
                 HttpStatusCode.InternalServerError => "Internal Server Error",
+                HttpStatusCode.OK => "OK",
                 _ => "An error occurred"
             };
         }
