@@ -578,9 +578,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "getAllPostsDto",
-        "Type": "Youth_Innovation_System.Shared.DTOs.Post.GetAllPostsDto",
-        "IsRequired": true
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -610,9 +615,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "getUserPostsDto",
-        "Type": "Youth_Innovation_System.Shared.DTOs.Post.GetUserPostsDto",
-        "IsRequired": true
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

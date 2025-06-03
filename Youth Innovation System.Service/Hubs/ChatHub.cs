@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 using Youth_Innovation_System.Core.Entities.Chat;
@@ -10,7 +9,6 @@ using Youth_Innovation_System.Core.IServices.ChatServices;
 using Youth_Innovation_System.Core.IServices.IHubs;
 namespace Youth_Innovation_System.Service.Hubs
 {
-    [Authorize]
     public class ChatHub : Hub<IChatClient>
     {
         private readonly IRedisConnectionManager _redisConnectionManager;
@@ -51,6 +49,7 @@ namespace Youth_Innovation_System.Service.Hubs
             }
             await base.OnDisconnectedAsync(exception);
         }
+
         [HubMethodName("sendmessagetouser")]
         public async Task SendMessageToUser(string receiverId, string message)
         {
@@ -80,28 +79,28 @@ namespace Youth_Innovation_System.Service.Hubs
             await _unitOfWork.Repository<Message>().AddAsync(messageObj);
             await _unitOfWork.CompleteAsync();
         }
-        [HubMethodName("fetchchathistory")]
-        public async Task<IReadOnlyList<Message>> FetchChatHistory(string receiverUserId)
-        {
-            var senderUserId = Context.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            return await _chatService.GetChatHistoryAsync(senderUserId, receiverUserId);
+        //[HubMethodName("fetchchathistory")]
+        //public async Task<IReadOnlyList<Message>> FetchChatHistory(string receiverUserId)
+        //{
+        //    var senderUserId = Context.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    return await _chatService.GetChatHistoryAsync(senderUserId, receiverUserId);
 
-        }
-        [HubMethodName("deletemessage")]
-        public async Task DeleteMessage(int messageId)
-        {
-            var userId = Context.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //}
+        //[HubMethodName("deletemessage")]
+        //public async Task DeleteMessage(int messageId)
+        //{
+        //    var userId = Context.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            if (string.IsNullOrEmpty(userId))
-                throw new HubException("Unauthorized access.");
+        //    if (string.IsNullOrEmpty(userId))
+        //        throw new HubException("Unauthorized access.");
 
-            var result = await _chatService.DeleteMessageAsync(messageId, userId);
+        //    var result = await _chatService.DeleteMessageAsync(messageId, userId);
 
-            if (result)
-            {
-                // Notify clients to remove the message from the UI
-                await Clients.All.MessageDeleted(messageId);
-            }
-        }
+        //    if (result)
+        //    {
+        //        // Notify clients to remove the message from the UI
+        //        await Clients.All.MessageDeleted(messageId);
+        //    }
+        //}
     }
 }

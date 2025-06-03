@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using System.Security.Claims;
 using Youth_Innovation_System.Core.IServices.PostServices;
-using Youth_Innovation_System.Core.Shared.Enums;
 using Youth_Innovation_System.Shared.ApiResponses;
 using Youth_Innovation_System.Shared.DTOs.Post;
 using Youth_Innovation_System.Shared.Pagination;
@@ -21,7 +20,6 @@ namespace Youth_Innovation_System.Controllers.PostAggregate
         {
             _postService = postService;
         }
-
         [Authorize]
         [HttpPost("Create-Post")]
         public async Task<IActionResult> CreatePost(CreatePostDto createPostDto)
@@ -57,19 +55,21 @@ namespace Youth_Innovation_System.Controllers.PostAggregate
             await _postService.UpdatePostAsync(userId, updatePostDto);
             return Ok(new Response<string>(null, StatusCodes.Status200OK, "Post updated successfully"));
         }
+        [Authorize]
         [HttpGet("Get-User-Posts")]
-        public async Task<IActionResult> GetUserPosts(GetUserPostsDto getUserPostsDto)
+        public async Task<IActionResult> GetUserPosts([FromQuery] GetAllPostsDto getUserPostsDto)
         {
-            var pagedPosts = await _postService.GetAllUserPostsAsync(getUserPostsDto.userId,
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var pagedPosts = await _postService.GetAllUserPostsAsync(userId,
                                                                      getUserPostsDto.pageNumber,
                                                                      getUserPostsDto.pageSize);
 
             return Ok(new Response<PagedResult<PostResponseDto>>(pagedPosts, StatusCodes.Status200OK));
         }
 
-        [Authorize(Roles = nameof(UserRoles.Admin))]
+        //[Authorize(Roles = nameof(UserRoles.Admin))]
         [HttpGet("Get-All-Posts")]
-        public async Task<IActionResult> GetAllPosts(GetAllPostsDto getAllPostsDto)
+        public async Task<IActionResult> GetAllPosts([FromQuery] GetAllPostsDto getAllPostsDto)
         {
             //With Pagination
             var pagedPosts = await _postService.GetAllPostsAsync(getAllPostsDto.pageNumber, getAllPostsDto.pageSize);

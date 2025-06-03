@@ -80,6 +80,7 @@ namespace Youth_Innovation_System.Service.IdentityServices
                 // Check if the app is behind a proxy (e.g., Nginx, Cloudflare)
                 if (_httpContextAccessor.HttpContext.Request.Headers.ContainsKey("X-Forwarded-For"))
                 {
+                    //X-Forwarded-For: 203.0.113.45, 70.41.3.18, 150.172.238.178
                     ipAddress = _httpContextAccessor.HttpContext.Request.Headers["X-Forwarded-For"].ToString().Split(',')[0].Trim();
                 }
 

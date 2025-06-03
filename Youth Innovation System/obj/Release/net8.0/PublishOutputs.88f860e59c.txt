@@ -1,0 +1,30 @@
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.APIs.exe
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.APIs.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.APIs.runtimeconfig.json
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.APIs.pdb
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.Bcl.Memory.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.IdentityModel.Logging.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.IdentityModel.Protocols.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.Core.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.Repository.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.Service.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.Shared.dll
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.Core.pdb
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.Repository.pdb
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.Service.pdb
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.Shared.pdb
+C:\Users\MICHEAL\OneDrive\Desktop\Projects\Youth-Innovation-System\Youth Innovation System\obj\Release\net8.0\PubTmp\Out\Youth Innovation System.APIs.deps.json

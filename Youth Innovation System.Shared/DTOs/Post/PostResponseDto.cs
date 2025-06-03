@@ -4,6 +4,7 @@ namespace Youth_Innovation_System.Shared.DTOs.Post
 {
     public class PostResponseDto
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime createdOn { get; set; }

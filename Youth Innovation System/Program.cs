@@ -47,9 +47,9 @@ namespace Youth_Innovation_System
                     Console.WriteLine($">> Incoming IP: {ipAddress}");
                     return RateLimitPartition.GetFixedWindowLimiter(ipAddress, _ => new FixedWindowRateLimiterOptions
                     {
-                        PermitLimit = 1,
-                        Window = TimeSpan.FromSeconds(100),
-                        QueueLimit = 0,
+                        PermitLimit = 10,
+                        Window = TimeSpan.FromSeconds(1),
+                        QueueLimit = 2,
                         QueueProcessingOrder = QueueProcessingOrder.OldestFirst
                     });
                 });
@@ -64,7 +64,7 @@ namespace Youth_Innovation_System
             {
                 options.AddPolicy("CorsPolicy", builder =>
                 {
-                    builder.WithOrigins("https://localhost:7040")
+                    builder.WithOrigins("http://localhost:5173")
                            .AllowAnyMethod()
                            .AllowAnyHeader()
                            .AllowCredentials();
@@ -78,11 +78,11 @@ namespace Youth_Innovation_System
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseMiddleware<TokenBlacklistMiddleware>();
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            //if (app.Environment.IsDevelopment())
+            //{
+            //}
             app.UseRateLimiter();
             app.UseCors("CorsPolicy");
             app.UseRouting();
@@ -90,8 +90,7 @@ namespace Youth_Innovation_System
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapHub<ChatHub>("/chathub").RequireAuthorization();
-
+            app.MapHub<ChatHub>("/Hubs/ChatHub");
             app.MapControllers();
 
             app.Run();

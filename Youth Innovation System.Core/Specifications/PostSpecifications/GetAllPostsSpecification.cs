@@ -5,7 +5,7 @@ namespace Youth_Innovation_System.Core.Specifications.PostSpecifications
     public class GetAllPostsSpecification : BaseSpecification<Post>
     {
         public GetAllPostsSpecification(int pageNumber, int pageSize)
-            : base()
+            : base(p => p.isDeleted == false)
         {
             ApplyPaging((pageNumber - 1) * pageSize, pageSize);
             AddOrderByDesc(p => p.createdOn);
@@ -13,7 +13,7 @@ namespace Youth_Innovation_System.Core.Specifications.PostSpecifications
         }
         //for total count
         public GetAllPostsSpecification()
-            : base()
+            : base(p => p.isDeleted == false)
         {
         }
     }

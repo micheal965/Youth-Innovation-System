@@ -26,7 +26,11 @@ namespace Youth_Innovation_System.Extensions
             }).AddEntityFrameworkStores<AppIdentityDbContext>()
             .AddDefaultTokenProviders();
 
-            Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -53,6 +57,21 @@ namespace Youth_Innovation_System.Extensions
                             {
                                 // Read the token from the query string
                                 context.Token = accessToken;
+                            }
+                            return Task.CompletedTask;
+                        }
+                    };
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = context =>
+                        {
+                            if (context.Request.Cookies.TryGetValue("access_token", out var token))
+                                context.Token = token;
+
+                            var path = context.HttpContext.Request.Path;
+                            if (!string.IsNullOrEmpty(token) && (path.StartsWithSegments("/Hubs/ChatHub")))
+                            {
+                                context.Token = token;
                             }
                             return Task.CompletedTask;
                         }
